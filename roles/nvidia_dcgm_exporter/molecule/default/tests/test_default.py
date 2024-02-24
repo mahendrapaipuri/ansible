@@ -3,46 +3,44 @@ __metaclass__ = type
 
 import os
 import testinfra.utils.ansible_runner
+import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_directories(host):
-    dirs = [
-        "/etc/dcgm_exporter"
-    ]
-    for dir in dirs:
-        d = host.file(dir)
-        assert d.is_directory
-        assert d.exists
+@pytest.mark.parametrize("dir", [
+    "/etc/dcgm_exporter",
+])
+def test_directories(host, dir):
+    d = host.file(dir)
+    assert d.is_directory
+    assert d.exists
 
 
-def test_files(host):
-    files = [
-        "/etc/systemd/system/dcgm_exporter.service",
-        "/usr/local/bin/dcgm_exporter",
-        "/etc/dcgm_exporter/counters.csv"
-    ]
-    for file in files:
-        f = host.file(file)
-        assert f.exists
-        assert f.is_file
+@pytest.mark.parametrize("file", [
+    "/etc/systemd/system/dcgm_exporter.service",
+    "/usr/local/bin/dcgm_exporter",
+    "/etc/dcgm_exporter/counters.csv"
+])
+def test_files(host, file):
+    f = host.file(file)
+    assert f.exists
+    assert f.is_file
 
 
-def test_permissions_didnt_change(host):
-    dirs = [
-        "/etc",
-        "/root",
-        "/usr",
-        "/var"
-    ]
-    for file in dirs:
-        f = host.file(file)
-        assert f.exists
-        assert f.is_directory
-        assert f.user == "root"
-        assert f.group == "root"
+@pytest.mark.parametrize("dir", [
+    "/etc",
+    "/root",
+    "/usr",
+    "/var",
+])
+def test_permissions_didnt_change(host, dir):
+    f = host.file(dir)
+    assert f.exists
+    assert f.is_directory
+    assert f.user == "root"
+    assert f.group == "root"
 
 
 def test_user(host):
@@ -50,19 +48,6 @@ def test_user(host):
     assert "dcgmexp" in host.user("dcgmexp").groups
     assert host.user("dcgmexp").shell == "/usr/sbin/nologin"
     assert host.user("dcgmexp").home == "/"
-
-
-# def test_service(host):
-#     s = host.service("dcgm_exporter")
-#     try:
-#         assert s.is_running
-#     except AssertionError:
-#         # Capture service logs
-#         journal_output = host.run('journalctl -u dcgm_exporter --since "1 hour ago"')
-#         print("\n==== journalctl -u dcgm_exporter Output ====\n")
-#         print(journal_output)
-#         print("\n============================================\n")
-#         raise  # Re-raise the original assertion error
 
 
 def test_protecthome_property(host):

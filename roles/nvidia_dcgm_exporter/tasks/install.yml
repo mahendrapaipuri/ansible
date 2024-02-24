@@ -18,7 +18,6 @@
   when: dcgm_exporter_system_user != "root"
 
 - name: Get binary
-  run_once: true
   when:
     - dcgm_exporter_binary_local_dir | length == 0
     - not dcgm_exporter_skip_install
@@ -27,6 +26,7 @@
   block:
     - name: Download golang to local folder
       become: false
+      run_once: true
       ansible.builtin.get_url:
         url: "{{ _golang_download_url }}"
         dest: /tmp/golang-{{ golang_version }}.linux-{{ go_arch }}.tar.gz
@@ -40,6 +40,7 @@
 
     - name: Unpack golang
       become: false
+      run_once: true
       ansible.builtin.unarchive:
         src: /tmp/golang-{{ golang_version }}.linux-{{ go_arch }}.tar.gz
         dest: /tmp
@@ -49,6 +50,7 @@
 
     - name: Clone dcgm_exporter repository to local folder
       become: false
+      run_once: true
       ansible.builtin.git:
         repo: "{{ dcgm_exporter_git_url }}"
         dest: /tmp/dcgm_exporter
@@ -58,6 +60,7 @@
 
     - name: Compile dcgm-exporter binary
       become: false
+      run_once: true
       community.general.make:
         chdir: /tmp/dcgm_exporter
         target: binary
