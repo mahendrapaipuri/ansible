@@ -1,0 +1,44 @@
+---
+- name: Copy the dcgm_exporter systemd service file
+  ansible.builtin.template:
+    src: dcgm_exporter.service.j2
+    dest: /etc/systemd/system/dcgm_exporter.service
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart dcgm_exporter
+
+- name: Create dcgm_exporter config directory
+  ansible.builtin.file:
+    path: "/etc/dcgm_exporter"
+    state: directory
+    owner: root
+    group: root
+    mode: u+rwX,g+rwX,o+rX
+
+- name: Copy the dcgm_exporter metrics config file
+  ansible.builtin.copy:
+    src: "{{ dcgm_exporter_metrics_config_file }}"
+    dest: /etc/dcgm_exporter/counters.csv
+    owner: "{{ dcgm_exporter_system_user }}"
+    group: "{{ dcgm_exporter_system_group }}"
+    mode: 0640
+
+- name: Copy the dcgm_exporter config file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/dcgm_exporter/config.yaml
+    owner: "{{ dcgm_exporter_system_user }}"
+    group: "{{ dcgm_exporter_system_group }}"
+    mode: 0640
+  notify: restart dcgm_exporter
+
+- name: Allow dcgm_exporter port in SELinux on RedHat OS family
+  community.general.seport:
+    ports: "{{ dcgm_exporter_web_listen_address.split(':')[-1] }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when:
+    - ansible_version.full is version_compare('2.4', '>=')
+    - ansible_selinux.status == "enabled"

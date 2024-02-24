@@ -1,0 +1,116 @@
+---
+# yamllint disable rule:line-length
+argument_specs:
+  main:
+    short_description: "CEEMS Exporter"
+    description:
+      - "Deploy prometheus (CEEMS exporter,https://github.com/mahendrapaipuri/ceems) using ansible"
+    author:
+      - "Mahendra Paipuri"
+    options:
+      ceems_exporter_version:
+        description: "CEEMS exporter package version. Also accepts latest as parameter."
+        default: "0.1.0"
+      ceems_exporter_skip_install:
+        description: "CEEMS exporter installation tasks gets skipped when set to true."
+        type: bool
+        default: false
+      ceems_exporter_binary_local_dir:
+        description:
+          - "Enables the use of local packages instead of those distributed on github."
+          - "The parameter may be set to a directory where the C(ceems_exporter) binary is stored on the host where ansible is run."
+          - "This overrides the I(ceems_exporter_version) parameter"
+      ceems_exporter_binary_url:
+        description: "URL of the ceems exporter binaries .tar.gz file"
+        default: "https://github.com/{{ _ceems_exporter_repo }}/releases/download/v{{ ceems_exporter_version }}/ceems-{{ ceems_exporter_version }}.linux-{{ go_arch }}.tar.gz"
+      ceems_exporter_checksums_url:
+        description: "URL of the ceems exporter checksums file"
+        default: "https://github.com/{{ _ceems_exporter_repo }}/releases/download/v{{ ceems_exporter_version }}/sha256sums.txt"
+      ceems_exporter_web_listen_address:
+        description: "Address on which ceems exporter will listen"
+        default: "0.0.0.0:9010"
+      ceems_exporter_web_telemetry_path:
+        description: "Path under which to expose metrics"
+        default: "/metrics"
+      ceems_exporter_enabled_collectors:
+        description:
+          - "List of dicts defining additionally enabled collectors and their configuration."
+          - "It adds collectors to L(those enabled by default,https://github.com/prometheus/ceems_exporter#enabled-by-default)."
+        type: "list"
+        default: []
+      ceems_exporter_disabled_collectors:
+        description:
+          - "List of disabled collectors."
+          - "By default ceems_exporter disables collectors listed L(here,https://github.com/prometheus/ceems_exporter#disabled-by-default)."
+        type: "list"
+        elements: "str"
+      ceems_exporter_create_unique_jobids:
+        description:
+          - "Unique job IDs will be created based on SLURM job properties."
+          - "If SLURM epilog scripts are used, C(ceems_exporter_slurm_job_props_dir) should be set to find files that contain job properties."
+        default: false
+      ceems_exporter_slurm_job_props_dir:
+        description: 
+          - "Directory where files containing SLURM job properties are created by Epilog scripts."
+          - "Check the L(example scripts,https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d)."
+        default: ""
+      ceems_exporter_gpu_type:
+        description: 
+          - "GPU type."
+          - "Check the L(example scripts,https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d)."
+        default: "nvidia"
+        choices:
+          - "nvidia"
+          - "amd"
+      ceems_exporter_gpu_job_map_dir:
+        description: 
+          - "Directory where files containing mapping of SLURM job ID to GPU ordinals are created by Epilog scripts."
+          - "Currently, nVIDIA and AMD GPUs are supported."
+        default: ""
+      ceems_exporter_emissions_country_code:
+        description: "ISO 3166-1 alpha-3 Country code to export emission data."
+        default: "FR"
+      ceems_exporter_ipmi_dcmi_cmd:
+        description: 
+          - "Full command to get power statistics from IPMI. Use absolute path to IPMI command."
+          - "Custom wrapper commands are also accepted as long as they give expected output."
+        default: "sudo /usr/sbin/ipmi-dcmi --get-system-power-statistics"
+      ceems_exporter_tls_server_config:
+        description:
+          - "Configuration for TLS authentication."
+          - "Keys and values are the same as in L(ceems_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_exporter_http_server_config:
+        description:
+          - "Config for HTTP/2 support."
+          - "Keys and values are the same as in L(ceems_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_exporter_basic_auth_users:
+        description: "Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt."
+        type: "dict"
+      ceems_exporter_binary_install_dir:
+        description:
+          - "I(Advanced)"
+          - "Directory to install ceems_exporter binary"
+        default: "/usr/local/bin"
+      ceems_exporter_system_group:
+        description:
+          - "I(Advanced)"
+          - "System group for batch job exporter"
+        default: "ceems-exp"
+      ceems_exporter_system_user:
+        description:
+          - "I(Advanced)"
+          - "CEEMS exporter user"
+        default: "ceems-exp"
+      ceems_exporter_cli_args:
+        description:
+          - "I(Advanced)"
+          - "Additional CLI arguments that will be passed to CEEMS exporter"
+        type: "list"
+        elements: "str"
+      ceems_exporter_env_vars:
+        description:
+          - "I(Advanced)"
+          - "Dict of environment variables that will be injected into systemd unit file"
+        type: "dict"

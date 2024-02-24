@@ -1,0 +1,104 @@
+---
+- name: Assert usage of systemd as an init system
+  ansible.builtin.assert:
+    that: ansible_service_mgr == 'systemd'
+    msg: "This role only works with systemd"
+
+- name: Install package fact dependencies
+  become: true
+  ansible.builtin.package:
+    name: "{{ _pkg_fact_req }}"
+    state: present
+  when: (_pkg_fact_req)
+  vars:
+    _pkg_fact_req: "{% if (ansible_pkg_mgr == 'apt') %}\
+      {{ ('python-apt' if ansible_python_version is version('3', '<') else 'python3-apt') }}
+      {% else %}\
+      {% endif %}"
+
+- name: Gather package facts
+  ansible.builtin.package_facts:
+  when: "not 'packages' in ansible_facts"
+
+- name: Naive assertion of proper listen address
+  ansible.builtin.assert:
+    that:
+      - >-
+        [ceems_lb_web_listen_address] |
+          flatten |
+          reject('match', '.+:\\d+$') |
+          list |
+          length == 0
+
+- name: Assert that TLS config is correct
+  when: ceems_lb_tls_server_config | length > 0
+  block:
+    - name: Assert that TLS key and cert path are set
+      ansible.builtin.assert:
+        that:
+          - "ceems_lb_tls_server_config.cert_file is defined"
+          - "ceems_lb_tls_server_config.key_file is defined"
+
+    - name: Check existence of TLS cert file
+      ansible.builtin.stat:
+        path: "{{ ceems_lb_tls_server_config.cert_file }}"
+      register: __ceems_lb_cert_file
+
+    - name: Check existence of TLS key file
+      ansible.builtin.stat:
+        path: "{{ ceems_lb_tls_server_config.key_file }}"
+      register: __ceems_lb_key_file
+
+    - name: Assert that TLS key and cert are present
+      ansible.builtin.assert:
+        that:
+          - "{{ __ceems_lb_cert_file.stat.exists }}"
+          - "{{ __ceems_lb_key_file.stat.exists }}"
+
+- name: Check if ceems_lb is installed
+  ansible.builtin.stat:
+    path: "{{ ceems_lb_binary_install_dir }}/ceems_lb"
+  register: __ceems_lb_is_installed
+  check_mode: false
+  tags:
+    - ceems_lb_install
+
+- name: Gather currently installed ceems_lb version (if any)
+  ansible.builtin.command: "{{ ceems_lb_binary_install_dir }}/ceems_lb --version"
+  changed_when: false
+  register: __ceems_lb_current_version_output
+  check_mode: false
+  when: __ceems_lb_is_installed.stat.exists
+  tags:
+    - ceems_lb_install
+
+- name: Discover latest version
+  ansible.builtin.set_fact:
+    ceems_lb_version: "{{ (lookup('url', 'https://api.github.com/repos/{{ _ceems_lb_repo }}/releases/latest', headers=_github_api_headers,
+                            split_lines=False) | from_json).get('tag_name') | replace('v', '') }}"
+  run_once: true
+  until: ceems_lb_version is version('0.0.0', '>=')
+  retries: 10
+  when:
+    - ceems_lb_version == "latest"
+    - ceems_lb_binary_local_dir | length == 0
+    - not ceems_lb_skip_install
+
+- name: Get ceems_lb binary checksum
+  when:
+    - ceems_lb_binary_local_dir | length == 0
+    - not ceems_lb_skip_install
+  block:
+    - name: Get checksum list from github
+      ansible.builtin.set_fact:
+        __ceems_lb_checksums: "{{ lookup('url', ceems_lb_checksums_url, headers=_github_api_headers, wantlist=True) | list }}"
+      run_once: true
+      until: __ceems_lb_checksums is search('linux-' + go_arch + '.tar.gz')
+      retries: 10
+
+    - name: "Get checksum for {{ go_arch }}"
+      ansible.builtin.set_fact:
+        __ceems_lb_checksum: "{{ item.split(' ')[0] }}"
+      with_items: "{{ __ceems_lb_checksums }}"
+      when:
+        - "('linux-' + go_arch + '.tar.gz') in item"

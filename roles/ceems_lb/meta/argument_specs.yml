@@ -1,0 +1,87 @@
+---
+# yamllint disable rule:line-length
+argument_specs:
+  main:
+    short_description: "CEEMS Load Balancer"
+    description:
+      - "Deploy (CEEMS Load Balancer,https://github.com/mahendrapaipuri/ceems) using ansible"
+    author:
+      - "Mahendra Paipuri"
+    options:
+      ceems_lb_version:
+        description: "CEEMS Load Balancer package version. Also accepts latest as parameter."
+        default: "0.1.0"
+      ceems_lb_skip_install:
+        description: "CEEMS Load Balancer installation tasks gets skipped when set to true."
+        type: bool
+        default: false
+      ceems_lb_binary_local_dir:
+        description:
+          - "Enables the use of local packages instead of those distributed on github."
+          - "The parameter may be set to a directory where the C(ceems_lb) binary is stored on the host where ansible is run."
+          - "This overrides the I(ceems_lb_version) parameter"
+      ceems_lb_binary_url:
+        description: "URL of the CEEMS Load Balancer binaries .tar.gz file"
+        default: "https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz"
+      ceems_lb_checksums_url:
+        description: "URL of the ceemCEEMS Load Balancer checksums file"
+        default: "https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt"
+      ceems_lb_web_listen_address:
+        description: "Address on which CEEMS Load Balancer will listen"
+        default: "0.0.0.0:9020"
+      ceems_lb_backends:
+        description: 
+          - "List of TSDB backends."
+          - "Each element is a dict with url and skip_tls_verify keys."
+        type: "list"
+        elements: "dict"
+      ceems_lb_strategy:
+        description: 
+          - "Load Balancer strategy."
+        default: "resource-based"
+        choices:
+          - "round-robin"
+          - "least-connection"
+          - "resource-based"
+      ceems_lb_db_path:
+        description: "Path to CEEMS API server DB"
+        default: ""
+      ceems_lb_tls_server_config:
+        description:
+          - "Configuration for TLS authentication."
+          - "Keys and values are the same as in L(ceems_lb docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_lb_http_server_config:
+        description:
+          - "Config for HTTP/2 support."
+          - "Keys and values are the same as in L(ceems_lb docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_lb_basic_auth_users:
+        description: "Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt."
+        type: "dict"
+      ceems_lb_binary_install_dir:
+        description:
+          - "I(Advanced)"
+          - "Directory to install ceems_lb binary"
+        default: "/usr/local/bin"
+      ceems_lb_system_group:
+        description:
+          - "I(Advanced)"
+          - "System group for batch job stats server"
+        default: "batchjob-stats"
+      ceems_lb_system_user:
+        description:
+          - "I(Advanced)"
+          - "CEEMS Load Balancer user"
+        default: "batchjob-stats"
+      ceems_lb_cli_args:
+        description:
+          - "I(Advanced)"
+          - "Additional CLI arguments that will be passed to CEEMS Load Balancer"
+        type: "list"
+        elements: "str"
+      ceems_lb_env_vars:
+        description:
+          - "I(Advanced)"
+          - "Environment variables will be passed to CEEMS Load Balancer"
+        type: "dict"

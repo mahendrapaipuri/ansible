@@ -1,0 +1,14 @@
+---
+provisioner:
+  inventory:
+    group_vars:
+      all:
+        ceems_exporter_version: latest
+        ceems_exporter_create_unique_jobids: true
+        ceems_exporter_disabled_collectors:
+          - "ipmi_dcmi"
+          - "rapl"
+        ceems_exporter_enabled_collectors:
+          - "emissions"
+        ceems_exporter_cli_args:
+          - "--log.level=debug"

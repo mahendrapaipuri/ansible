@@ -1,0 +1,23 @@
+---
+provisioner:
+  inventory:
+    group_vars:
+      all:
+        ceems_api_server_web_listen_address: '127.0.0.1:8080'
+
+        ceems_api_server_tls_server_config:
+          cert_file: /etc/ceems_api_server/tls.cert
+          key_file: /etc/ceems_api_server/tls.key
+        ceems_api_server_http_server_config:
+          http2: true
+        ceems_api_server_basic_auth_users:
+          randomuser: examplepassword
+        go_arch: amd64
+        ceems_api_server_data_backup_path: "/tmp/ceems_api_server"
+        ceems_api_server_admin_users:
+          - "adm1"
+          - "adm2"
+        ceems_api_server_cli_args:
+          - "--web.max.query.period=30d"
+        ceems_api_server_env_vars:
+          foo: bar

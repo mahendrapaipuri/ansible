@@ -1,0 +1,45 @@
+---
+- name: Copy the ceems_exporter systemd service file
+  ansible.builtin.template:
+    src: ceems_exporter.service.j2
+    dest: /etc/systemd/system/ceems_exporter.service
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart ceems_exporter
+
+- name: Create ceems_exporter config directory
+  ansible.builtin.file:
+    path: "/etc/ceems_exporter"
+    state: directory
+    owner: root
+    group: root
+    mode: u+rwX,g+rwX,o+rX
+
+- name: Copy the ceems_exporter config file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/ceems_exporter/config.yaml
+    owner: "{{ ceems_exporter_system_user }}"
+    group: "{{ ceems_exporter_system_group }}"
+    mode: 0640
+  notify: restart ceems_exporter
+
+- name: Allow ceems_exporter to sudo ipmi-dcmi
+  community.general.sudoers:
+    name: allow-ipmi-dcmi
+    user: "{{ ceems_exporter_system_user }}"
+    commands: /usr/sbin/ipmi-dcmi
+  when:
+    - '"ipmi_dcmi" in ceems_exporter_disabled_collectors'
+    - ceems_exporter_system_user != "root"
+
+- name: Allow ceems_exporter port in SELinux on RedHat OS family
+  community.general.seport:
+    ports: "{{ ceems_exporter_web_listen_address.split(':')[-1] }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when:
+    - ansible_version.full is version_compare('2.4', '>=')
+    - ansible_selinux.status == "enabled"

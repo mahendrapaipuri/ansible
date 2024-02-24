@@ -1,0 +1,10 @@
+---
+- name: Restart ceems_lb
+  listen: "restart ceems_lb"
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: ceems_lb
+    state: restarted
+  when:
+    - not ansible_check_mode

@@ -1,0 +1,23 @@
+---
+dcgm_exporter_version: 3.3.0-3.3.1
+golang_version: "1.21.5"
+dcgm_exporter_binary_local_dir: ""
+
+dcgm_exporter_git_url: "https://github.com/NVIDIA/dcgm-exporter.git"
+dcgm_exporter_skip_install: false
+
+dcgm_exporter_web_listen_address: "0.0.0.0:9400"
+
+dcgm_exporter_tls_server_config: {}
+
+dcgm_exporter_http_server_config: {}
+
+dcgm_exporter_basic_auth_users: {}
+
+dcgm_exporter_metrics_config_file: counters.csv
+
+dcgm_exporter_cli_args: []
+
+dcgm_exporter_binary_install_dir: "/usr/local/bin"
+dcgm_exporter_system_group: "dcgmexp"
+dcgm_exporter_system_user: "{{ dcgm_exporter_system_group }}"

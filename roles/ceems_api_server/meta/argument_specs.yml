@@ -1,0 +1,107 @@
+---
+# yamllint disable rule:line-length
+argument_specs:
+  main:
+    short_description: "CEEMS API Server"
+    description:
+      - "Deploy (CEEMS API server,https://github.com/mahendrapaipuri/ceems_api_server) using ansible"
+    author:
+      - "Mahendra Paipuri"
+    options:
+      ceems_api_server_version:
+        description: "CEEMS API server package version. Also accepts latest as parameter."
+        default: "0.1.0"
+      ceems_api_server_skip_install:
+        description: "CEEMS API server installation tasks gets skipped when set to true."
+        type: bool
+        default: false
+      ceems_api_server_binary_local_dir:
+        description:
+          - "Enables the use of local packages instead of those distributed on github."
+          - "The parameter may be set to a directory where the C(ceems_api_server) binary is stored on the host where ansible is run."
+          - "This overrides the I(ceems_api_server_version) parameter"
+      ceems_api_server_binary_url:
+        description: "URL of the ceems API server binaries .tar.gz file"
+        default: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/v{{ ceems_api_server_version }}/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz"
+      ceems_api_server_checksums_url:
+        description: "URL of the ceems API server checksums file"
+        default: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/v{{ ceems_api_server_version }}/sha256sums.txt"
+      ceems_api_server_web_listen_address:
+        description: "Address on which ceems API server will listen"
+        default: "0.0.0.0:9020"
+      ceems_api_server_resource_manager:
+        description: 
+          - "Name of the backend resource manager."
+          - "Currently only SLURM is supported."
+        default: "slurm"
+        choices:
+          - "slurm"
+      ceems_api_server_data_retention_period:
+        description: 
+          - "Compute unit data will be retained for this period in the DB."
+          - "Units Supported: y, w, d, h, m, s, ms"
+        default: "1y"
+      ceems_api_server_data_path:
+        description: 
+          - "Directory where data files of ceems API server are created."
+          - "These files include the SQLite database."
+        default: "/var/lib/ceems"
+      ceems_api_server_data_update_interval:
+        description: 
+          - "DB will be updated from backend batch scheduler at this interval."
+          - "This must be not too small nor too large. Use based on your platform job churn."
+          - "Units Supported: y, w, d, h, m, s, ms"
+        default: "15m"
+      ceems_api_server_data_backup_path:
+        description: 
+          - "Directory where DB back ups are stored."
+          - "To achieve fault tolerance this directory should be on a different physical disk than actual DB or on a network file system."
+        default: ""
+      ceems_api_server_data_backup_interval:
+        description: 
+          - "A DB backup will be created at this interval."
+          - "Units Supported: y, w, d, h, m, s, ms"
+        default: ""
+      ceems_api_server_admin_users:
+        description: "List of admin users for ceems API server."
+        type: "list"
+        elements: "str"
+      ceems_api_server_tls_server_config:
+        description:
+          - "Configuration for TLS authentication."
+          - "Keys and values are the same as in L(ceems_api_server docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_api_server_http_server_config:
+        description:
+          - "Config for HTTP/2 support."
+          - "Keys and values are the same as in L(ceems_api_server docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
+        type: "dict"
+      ceems_api_server_basic_auth_users:
+        description: "Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt."
+        type: "dict"
+      ceems_api_server_binary_install_dir:
+        description:
+          - "I(Advanced)"
+          - "Directory to install ceems_api_server binary"
+        default: "/usr/local/bin"
+      ceems_api_server_system_group:
+        description:
+          - "I(Advanced)"
+          - "System group for batch job stats server"
+        default: "batchjob-stats"
+      ceems_api_server_system_user:
+        description:
+          - "I(Advanced)"
+          - "CEEMS API server user"
+        default: "batchjob-stats"
+      ceems_api_server_cli_args:
+        description:
+          - "I(Advanced)"
+          - "Additional CLI arguments that will be passed to CEEMS API server"
+        type: "list"
+        elements: "str"
+      ceems_api_server_env_vars:
+        description:
+          - "I(Advanced)"
+          - "Environment variables will be passed to CEEMS API server"
+        type: "dict"

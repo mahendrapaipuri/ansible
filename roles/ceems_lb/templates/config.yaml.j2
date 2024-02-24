@@ -1,0 +1,7 @@
+---
+strategy: {{ ceems_lb_strategy }}
+{% if ceems_lb_db_path %}
+db_path: {{ ceems_lb_db_path }}
+{% endif %}
+backends:
+{{ ceems_lb_backends | to_nice_yaml | indent(2, true) }}

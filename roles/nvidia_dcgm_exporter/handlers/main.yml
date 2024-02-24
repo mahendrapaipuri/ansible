@@ -1,0 +1,10 @@
+---
+- name: Restart dcgm_exporter
+  listen: "restart dcgm_exporter"
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: dcgm_exporter
+    state: restarted
+  when:
+    - not ansible_check_mode

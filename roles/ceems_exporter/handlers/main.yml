@@ -1,0 +1,10 @@
+---
+- name: Restart ceems_exporter
+  listen: "restart ceems_exporter"
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: ceems_exporter
+    state: restarted
+  when:
+    - not ansible_check_mode

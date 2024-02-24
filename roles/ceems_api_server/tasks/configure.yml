@@ -1,0 +1,54 @@
+---
+- name: Copy the ceems_api_server systemd service file
+  ansible.builtin.template:
+    src: ceems_api_server.service.j2
+    dest: /etc/systemd/system/ceems_api_server.service
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart ceems_api_server
+
+- name: Create ceems_api_server config directory
+  ansible.builtin.file:
+    path: "/etc/ceems_api_server"
+    state: directory
+    owner: root
+    group: root
+    mode: u+rwX,g+rwX,o+rX
+
+- name: Make the ceems_api_server backup data directory
+  ansible.builtin.file:
+    path: "{{ ceems_api_server_data_backup_path }}"
+    state: directory
+    owner: "{{ ceems_api_server_system_user }}"
+    group: "{{ ceems_api_server_system_user }}"
+    mode: u+rwX,g+rwX,o-rwX
+  when: ceems_api_server_data_backup_path
+
+- name: Copy the ceems_api_server config file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/ceems_api_server/config.yaml
+    owner: "{{ ceems_api_server_system_user }}"
+    group: "{{ ceems_api_server_system_group }}"
+    mode: 0640
+  notify: restart ceems_api_server
+
+- name: Make the ceems_api_server data directory
+  ansible.builtin.file:
+    path: "{{ ceems_api_server_data_path }}"
+    state: directory
+    owner: "{{ ceems_api_server_system_user }}"
+    group: "{{ ceems_api_server_system_user }}"
+    mode: u+rwX,g+rwX,o-rwX
+  notify: restart ceems_api_server
+
+- name: Allow ceems_api_server port in SELinux on RedHat OS family
+  community.general.seport:
+    ports: "{{ ceems_api_server_web_listen_address.split(':')[-1] }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when:
+    - ansible_version.full is version_compare('2.4', '>=')
+    - ansible_selinux.status == "enabled"

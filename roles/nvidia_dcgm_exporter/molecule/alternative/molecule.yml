@@ -1,0 +1,13 @@
+---
+provisioner:
+  inventory:
+    group_vars:
+      all:
+        dcgm_exporter_tls_server_config:
+          cert_file: /etc/dcgm_exporter/tls.cert
+          key_file: /etc/dcgm_exporter/tls.key
+        dcgm_exporter_http_server_config:
+          http2: true
+        dcgm_exporter_basic_auth_users:
+          randomuser: examplepassword
+        go_arch: amd64
