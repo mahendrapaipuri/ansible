@@ -96,13 +96,13 @@ argument_specs:
       ceems_exporter_system_group:
         description:
           - I(Advanced)
-          - System group for batch job exporter
-        default: ceems-exp
+          - System group for CEEMS exporter
+        default: ceemsexp
       ceems_exporter_system_user:
         description:
           - I(Advanced)
           - CEEMS exporter user
-        default: ceems-exp
+        default: ceemsexp
       ceems_exporter_cli_args:
         description:
           - I(Advanced)

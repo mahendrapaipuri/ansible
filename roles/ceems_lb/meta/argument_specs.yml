@@ -68,12 +68,12 @@ argument_specs:
         description:
           - I(Advanced)
           - System group for batch job stats server
-        default: batchjob-stats
+        default: ceemslb
       ceems_lb_system_user:
         description:
           - I(Advanced)
           - CEEMS Load Balancer user
-        default: batchjob-stats
+        default: ceemslb
       ceems_lb_cli_args:
         description:
           - I(Advanced)
