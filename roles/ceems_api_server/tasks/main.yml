@@ -50,7 +50,7 @@
   tags:
     - ceems_api_server_configure
 
-- name: Ensure Node Exporter is enabled on boot
+- name: Ensure CEEMS API Server is enabled on boot
   become: true
   ansible.builtin.systemd:
     daemon_reload: true
