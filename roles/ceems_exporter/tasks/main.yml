@@ -50,7 +50,7 @@
   tags:
     - ceems_exporter_configure
 
-- name: Ensure Node Exporter is enabled on boot
+- name: Ensure CEEMS Exporter is enabled on boot
   become: true
   ansible.builtin.systemd:
     daemon_reload: true

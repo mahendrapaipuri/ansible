@@ -10,8 +10,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_directories(host):
     dirs = [
-        "/var/lib/ceems_api_server",
-        "/tmp/ceems_api_server"
+        "/var/lib/ceems_lb",
+        "/tmp/ceems_lb"
     ]
     for dir in dirs:
         d = host.file(dir)
@@ -21,8 +21,9 @@ def test_directories(host):
 
 def test_files(host):
     files = [
-        "/etc/systemd/system/ceems_api_server.service",
-        "/usr/local/bin/ceems_api_server"
+        "/etc/systemd/system/ceems_lb.service",
+        "/etc/ceems_lb/config.yaml",
+        "/usr/local/bin/ceems_lb"
     ]
     for file in files:
         f = host.file(file)
@@ -46,27 +47,27 @@ def test_permissions_didnt_change(host):
 
 
 def test_user(host):
-    assert host.group("batchjob-stats").exists
-    assert "batchjob-stats" in host.user("batchjob-stats").groups
-    assert host.user("batchjob-stats").shell == "/usr/sbin/nologin"
-    assert host.user("batchjob-stats").home == "/"
+    assert host.group("ceemslb").exists
+    assert "ceemslb" in host.user("ceemslb").groups
+    assert host.user("ceemslb").shell == "/usr/sbin/nologin"
+    assert host.user("ceemslb").home == "/"
 
 
 def test_service(host):
-    s = host.service("ceems_api_server")
+    s = host.service("ceems_lb")
     try:
         assert s.is_running
     except AssertionError:
         # Capture service logs
-        journal_output = host.run('journalctl -u ceems_api_server --since "1 hour ago"')
-        print("\n==== journalctl -u ceems_api_server Output ====\n")
+        journal_output = host.run('journalctl -u ceems_lb --since "1 hour ago"')
+        print("\n==== journalctl -u ceems_lb Output ====\n")
         print(journal_output)
         print("\n============================================\n")
         raise  # Re-raise the original assertion error
 
 
 def test_systemd_properties(host):
-    s = host.service("ceems_api_server")
+    s = host.service("ceems_lb")
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
     assert p.get("Environment") == "foo=bar"

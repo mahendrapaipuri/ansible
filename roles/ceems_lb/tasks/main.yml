@@ -51,7 +51,7 @@
   tags:
     - ceems_lb_configure
 
-- name: Ensure Node Exporter is enabled on boot
+- name: Ensure CEEMS Load balancer is enabled on boot
   become: true
   ansible.builtin.systemd:
     daemon_reload: true

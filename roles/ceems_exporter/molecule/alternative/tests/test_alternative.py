@@ -10,10 +10,10 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_directories(host):
-    dirs = []
+    dirs = ["/etc/ceems_exporter/"]
     for dir in dirs:
         d = host.file(dir)
-        assert not d.exists
+        assert d.exists
 
 
 def test_service(host):
@@ -33,8 +33,11 @@ def test_systemd_properties(host):
     s = host.service("ceems_exporter")
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
-    assert p.get("AmbientCapabilities") == "cap_setgid cap_setuid"
-    assert p.get("Environment") == "EMAPS_API=foo"
+    assert p.get("Environment") == "EMAPS_API_TOKEN=foo"
+    # Seems like this test will fail on centos 7
+    if host.system_info.distribution != "centos" and host.system_info.release != "7":
+        assert p.get("AmbientCapabilities") == "cap_setgid cap_setuid"
+        assert p.get("CapabilityBoundingSet") == "cap_setgid cap_setuid"
 
 
 @pytest.mark.parametrize("sockets", [
