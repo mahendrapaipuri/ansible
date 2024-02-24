@@ -29,17 +29,17 @@ jobs:
         ansible-core-versions: ${{ fromJson(inputs.ansible-core-versions) }}
         target-python-versions: ${{ fromJson(inputs.target-python-versions) }}
 
-    name: "${{ matrix.targets.name }}-${{ matrix.ansible-core-versions }}"
+    name: ${{ matrix.targets.name }}-${{ matrix.ansible-core-versions }}
     steps:
-      - name: "Perform ${{ matrix.targets.test }} integration test with ansible-test"
+      - name: Perform ${{ matrix.targets.test }} integration test with ansible-test
         uses: ansible-community/ansible-test-gh-action@release/v1
         with:
           ansible-core-version: ${{ matrix.ansible-core-versions }}
           target-python-version: ${{ matrix.target-python-versions }}
           controller-python-version: auto
-          docker-image: "--docker-privileged"  # Workaround because ansible-test action doesn't support setting privileged flag
+          docker-image: --docker-privileged  # Workaround because ansible-test action doesn't support setting privileged flag
           testing-type: integration
           target: ${{ matrix.targets.test }}
           coverage: ${{ inputs.coverage }}
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

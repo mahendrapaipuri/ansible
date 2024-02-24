@@ -21,11 +21,12 @@
         - ceems_lb_install
   when:
     ( not __ceems_lb_is_installed.stat.exists ) or
-    ( (__ceems_lb_current_version_output.stderr_lines | length > 0)
-      and (__ceems_lb_current_version_output.stderr_lines[0].split(" ")[2] != ceems_lb_version) ) or
-    ( (__ceems_lb_current_version_output.stdout_lines | length > 0)
-      and (__ceems_lb_current_version_output.stdout_lines[0].split(" ")[2] != ceems_lb_version) ) or
-    ( ceems_lb_binary_local_dir | length > 0 )
+      ( (__ceems_lb_current_version_output.stderr_lines | length > 0) and
+      (__ceems_lb_current_version_output.stderr_lines[0].split(" ")[2] != ceems_lb_version) ) or
+      ( (__ceems_lb_current_version_output.stdout_lines | length > 0) and
+      (__ceems_lb_current_version_output.stdout_lines[0].split(" ")[2] != ceems_lb_version) ) or
+      ( ceems_lb_binary_local_dir | length> 0
+    )
   tags:
     - ceems_lb_install
 

@@ -1,6 +1,6 @@
 ---
 - name: Restart ceems_exporter
-  listen: "restart ceems_exporter"
+  listen: restart ceems_exporter
   become: true
   ansible.builtin.systemd:
     daemon_reload: true

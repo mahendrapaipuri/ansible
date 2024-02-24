@@ -23,9 +23,9 @@
     ( not __ceems_api_server_is_installed.stat.exists ) or
     ( (__ceems_api_server_current_version_output.stderr_lines | length > 0)
       and (__ceems_api_server_current_version_output.stderr_lines[0].split(" ")[2] != ceems_api_server_version) ) or
-    ( (__ceems_api_server_current_version_output.stdout_lines | length > 0)
-      and (__ceems_api_server_current_version_output.stdout_lines[0].split(" ")[2] != ceems_api_server_version) ) or
-    ( ceems_api_server_binary_local_dir | length > 0 )
+      ( (__ceems_api_server_current_version_output.stdout_lines | length > 0) and
+      (__ceems_api_server_current_version_output.stdout_lines[0].split(" ")[2] != ceems_api_server_version)
+    ) or ( ceems_api_server_binary_local_dir | length > 0 )
   tags:
     - ceems_api_server_install
 

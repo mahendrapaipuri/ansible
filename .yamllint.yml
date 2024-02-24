@@ -20,7 +20,7 @@ rules:
   hyphens:
     level: error
   line-length:
-    max: 200
+    max: 260
   truthy:
     check-keys: false
 

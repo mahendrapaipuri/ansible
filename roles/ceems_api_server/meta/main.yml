@@ -1,37 +1,37 @@
 ---
 galaxy_info:
-  author: "Mahendra Paipuri"
-  description: "CEEMS API Server"
-  license: "Apache"
+  author: Mahendra Paipuri
+  description: CEEMS API Server
+  license: Apache
   min_ansible_version: "2.9"
   platforms:
-    - name: "Ubuntu"
+    - name: Ubuntu
       versions:
-        - "focal"
-        - "jammy"
-    - name: "Debian"
+        - focal
+        - jammy
+    - name: Debian
       versions:
-        - "bullseye"
-        - "buster"
-    - name: "EL"
+        - bullseye
+        - buster
+    - name: EL
       versions:
         - "7"
         - "8"
         - "9"
-    - name: "Fedora"
+    - name: Fedora
       versions:
         - "37"
-        - '38'
+        - "38"
   galaxy_tags:
-    - "monitoring"
-    - "prometheus"
-    - "exporter"
-    - "metrics"
-    - "batchjob"
-    - "hpc"
-    - "slurm"
-    - "cgroups"
-    - "energy"
-    - "ipmi"
-    - "rapl"
-    - "gpu"
+    - monitoring
+    - prometheus
+    - exporter
+    - metrics
+    - batchjob
+    - hpc
+    - slurm
+    - cgroups
+    - energy
+    - ipmi
+    - rapl
+    - gpu

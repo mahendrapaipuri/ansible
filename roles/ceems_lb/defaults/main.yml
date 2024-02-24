@@ -1,26 +1,21 @@
 ---
-ceems_lb_version: 0.1.0-rc.4
+ceems_lb_version: "0.1.0-rc.4"
 ceems_lb_binary_local_dir: ""
-ceems_lb_binary_url: "https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/\
-                           ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz"
-ceems_lb_checksums_url: "https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt"
+ceems_lb_binary_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz
+ceems_lb_checksums_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt
 ceems_lb_skip_install: false
 
 ceems_lb_web_listen_address: "0.0.0.0:9030"
 
 ceems_lb_tls_server_config: {}
-
 ceems_lb_http_server_config: {}
-
 ceems_lb_basic_auth_users: {}
-
 ceems_lb_backends: []
-ceems_lb_strategy: "resource-based"
+ceems_lb_strategy: resource-based
 ceems_lb_db_path: ""
 
 ceems_lb_cli_args: []
 ceems_lb_env_vars: {}
-
-ceems_lb_binary_install_dir: "/usr/local/bin"
-ceems_lb_system_group: "ceems"
+ceems_lb_binary_install_dir: /usr/local/bin
+ceems_lb_system_group: ceems
 ceems_lb_system_user: "{{ ceems_lb_system_group }}"

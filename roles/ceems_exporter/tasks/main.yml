@@ -21,11 +21,11 @@
         - ceems_exporter_install
   when:
     ( not __ceems_exporter_is_installed.stat.exists ) or
-    ( (__ceems_exporter_current_version_output.stderr_lines | length > 0)
-      and (__ceems_exporter_current_version_output.stderr_lines[0].split(" ")[2] != ceems_exporter_version) ) or
-    ( (__ceems_exporter_current_version_output.stdout_lines | length > 0)
-      and (__ceems_exporter_current_version_output.stdout_lines[0].split(" ")[2] != ceems_exporter_version) ) or
-    ( ceems_exporter_binary_local_dir | length > 0 )
+      ( (__ceems_exporter_current_version_output.stderr_lines | length > 0) and
+      (__ceems_exporter_current_version_output.stderr_lines[0].split(" ")[2] != ceems_exporter_version) ) or
+      ( (__ceems_exporter_current_version_output.stdout_lines | length > 0) and
+      (__ceems_exporter_current_version_output.stdout_lines[0].split(" ")[2] != ceems_exporter_version)
+    ) or ( ceems_exporter_binary_local_dir | length > 0 )
   tags:
     - ceems_exporter_install
 

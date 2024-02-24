@@ -9,16 +9,15 @@ on:
       - synchronize
       - labeled
   workflow_dispatch:
-
 concurrency:
   group: ansible-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 env:
   ANSIBLE_FORCE_COLOR: true
-  ANSIBLE_GALAXY_SERVER_GALAXY_URL: "https://galaxy.ansible.com"
+  ANSIBLE_GALAXY_SERVER_GALAXY_URL: https://galaxy.ansible.com
   ANSIBLE_GALAXY_SERVER_GALAXY_TIMEOUT: 120
-  ANSIBLE_GALAXY_SERVER_LIST: "galaxy"
+  ANSIBLE_GALAXY_SERVER_LIST: galaxy
 
 jobs:
   ansible-lint:
@@ -94,8 +93,7 @@ jobs:
     needs:
       - discover-ansible-tests
       - discover-ansible-versions
-    if: needs.discover-ansible-tests.outputs.molecule-tests != '[]' &&
-        needs.discover-ansible-tests.outputs.molecule-tests != ''
+    if: needs.discover-ansible-tests.outputs.molecule-tests != '[]' && needs.discover-ansible-tests.outputs.molecule-tests != ''
     with:
       targets: ${{ needs.discover-ansible-tests.outputs.molecule-tests }}
       ansible-core-versions: ${{ needs.discover-ansible-versions.outputs.versions }}
@@ -106,9 +104,7 @@ jobs:
     needs:
       - discover-ansible-tests
       - discover-ansible-versions
-    if:
-      needs.discover-ansible-tests.outputs.integration-tests != '[]' &&
-      needs.discover-ansible-tests.outputs.integration-tests != ''
+    if: needs.discover-ansible-tests.outputs.integration-tests != '[]' && needs.discover-ansible-tests.outputs.integration-tests != ''
     with:
       targets: ${{ needs.discover-ansible-tests.outputs.integration-tests }}
       ansible-core-versions: ${{ needs.discover-ansible-versions.outputs.versions }}

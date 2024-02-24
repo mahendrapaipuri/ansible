@@ -2,66 +2,69 @@
 # yamllint disable rule:line-length
 argument_specs:
   main:
-    short_description: "nVIDIA DCGM Exporter"
+    short_description: nVIDIA DCGM Exporter
     description:
-      - "Deploy prometheus (dcgm exporter,https://github.com/NVIDIA/dcgm-exporter) using ansible"
+      - Deploy prometheus L(dcgm exporter,https://github.com/NVIDIA/dcgm-exporter) using ansible
     author:
-      - "Mahendra Paipuri"
+      - Mahendra Paipuri
     options:
       dcgm_exporter_version:
-        description: "DCGM exporter package version. Also accepts latest as parameter."
-        default: "3.3.0-3.2.0"
+        description: DCGM exporter package version. Also accepts latest as parameter.
+        default: 3.3.0-3.2.0
+      golang_version:
+        description: Go version used to compile dcgm_exporter.
+        default: 1.21.5
       dcgm_exporter_skip_install:
-        description: "DCGM exporter installation tasks gets skipped when set to true."
+        description: DCGM exporter installation tasks gets skipped when set to true.
         type: bool
         default: false
       dcgm_exporter_binary_local_dir:
         description:
-          - "Enables the use of local packages instead of those distributed on github."
-          - "The parameter may be set to a directory where the C(dcgm_exporter) binary is stored on the host where ansible is run."
-          - "This overrides the I(dcgm_exporter_version) parameter"
+          - Enables the use of local packages instead of those distributed on github.
+          - The parameter may be set to a directory where the C(dcgm_exporter) binary is stored on the host where ansible is run.
+          - This overrides the I(dcgm_exporter_version) parameter
       dcgm_exporter_git_url:
-        description: "URL of the dcgm exporter git repository"
-        default: "https://github.com/NVIDIA/dcgm-exporter.git"
+        description: URL of the dcgm exporter git repository
+        default: https://github.com/NVIDIA/dcgm-exporter.git
       dcgm_exporter_web_listen_address:
-        description: "Address on which dcgm exporter will listen"
+        description: Address on which dcgm exporter will listen
         default: "0.0.0.0:9400"
       dcgm_exporter_tls_server_config:
         description:
-          - "Configuration for TLS authentication."
-          - "Keys and values are the same as in L(dcgm_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
-        type: "dict"
+          - Configuration for TLS authentication.
+          - Keys and values are the same as in L(dcgm_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/).
+        type: dict
       dcgm_exporter_http_server_config:
         description:
-          - "Config for HTTP/2 support."
-          - "Keys and values are the same as in L(dcgm_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/)."
-        type: "dict"
+          - Config for HTTP/2 support.
+          - Keys and values are the same as in L(dcgm_exporter docs,https://prometheus.io/docs/prometheus/latest/configuration/https/).
+        type: dict
       dcgm_exporter_basic_auth_users:
-        description: "Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt."
-        type: "dict"
+        description: Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt.
+        type: dict
       dcgm_exporter_metrics_config_file:
-        description: 
-          - "Path to CSV file that containe list of collectors for dcgm exporter."
-          - "An example file can be found at L(dcgm-exporter repo,https://raw.githubusercontent.com/NVIDIA/dcgm-exporter/main/etc/default-counters.csv)"
-        default: "counters.csv"
+        description:
+          - Path to CSV file that containe list of collectors for dcgm exporter.
+          - An example file can be found at L(dcgm-exporter repo,https://raw.githubusercontent.com/NVIDIA/dcgm-exporter/main/etc/default-counters.csv)
+        default: counters.csv
       dcgm_exporter_binary_install_dir:
         description:
-          - "I(Advanced)"
-          - "Directory to install dcgm_exporter binary"
-        default: "/usr/local/bin"
+          - I(Advanced)
+          - Directory to install dcgm_exporter binary
+        default: /usr/local/bin
       dcgm_exporter_system_group:
         description:
-          - "I(Advanced)"
-          - "System group for batch job exporter"
-        default: "dcgm-exp"
+          - I(Advanced)
+          - System group for batch job exporter
+        default: dcgm-exp
       dcgm_exporter_system_user:
         description:
-          - "I(Advanced)"
-          - "DCGM exporter user"
-        default: "dcgm-exp"
+          - I(Advanced)
+          - DCGM exporter user
+        default: dcgm-exp
       dcgm_exporter_cli_args:
         description:
-          - "I(Advanced)"
-          - "Additional CLI arguments that will be passed to DCGM exporter"
-        type: "list"
-        elements: "str"
+          - I(Advanced)
+          - Additional CLI arguments that will be passed to DCGM exporter
+        type: list
+        elements: str

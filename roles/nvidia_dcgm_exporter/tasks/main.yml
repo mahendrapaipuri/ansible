@@ -21,11 +21,11 @@
         - dcgm_exporter_install
   when:
     ( not __dcgm_exporter_is_installed.stat.exists ) or
-    ( (__dcgm_exporter_current_version_output.stderr_lines | length > 0)
-      and (__dcgm_exporter_current_version_output.stderr_lines[0].split(" ")[2] != dcgm_exporter_version) ) or
-    ( (__dcgm_exporter_current_version_output.stdout_lines | length > 0)
-      and (__dcgm_exporter_current_version_output.stdout_lines[0].split(" ")[2] != dcgm_exporter_version) ) or
-    ( dcgm_exporter_binary_local_dir | length > 0 )
+      ( (__dcgm_exporter_current_version_output.stderr_lines | length > 0) and
+      (__dcgm_exporter_current_version_output.stderr_lines[0].split(" ")[2] != dcgm_exporter_version) ) or
+      ( (__dcgm_exporter_current_version_output.stdout_lines | length > 0) and
+      (__dcgm_exporter_current_version_output.stdout_lines[0].split(" ")[2] != dcgm_exporter_version)
+    ) or ( dcgm_exporter_binary_local_dir | length > 0 )
   tags:
     - dcgm_exporter_install
 

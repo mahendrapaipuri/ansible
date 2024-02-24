@@ -46,10 +46,10 @@ def test_permissions_didnt_change(host):
 
 
 def test_user(host):
-    assert host.group("batchjob-stats").exists
-    assert "batchjob-stats" in host.user("batchjob-stats").groups
-    assert host.user("batchjob-stats").shell == "/usr/sbin/nologin"
-    assert host.user("batchjob-stats").home == "/"
+    assert host.group("ceems").exists
+    assert "ceems" in host.user("ceems").groups
+    assert host.user("ceems").shell == "/usr/sbin/nologin"
+    assert host.user("ceems").home == "/"
 
 
 def test_service(host):

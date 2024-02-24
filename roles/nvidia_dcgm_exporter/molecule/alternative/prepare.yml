@@ -5,22 +5,22 @@
   tasks:
     - name: Install pyOpenSSL for certificate generation
       ansible.builtin.pip:
-        name: "pyOpenSSL"
+        name: pyOpenSSL
 
     - name: Create private key
       community.crypto.openssl_privatekey:
-        path: "/tmp/tls.key"
+        path: /tmp/tls.key
 
     - name: Create CSR
       community.crypto.openssl_csr:
-        path: "/tmp/tls.csr"
-        privatekey_path: "/tmp/tls.key"
+        path: /tmp/tls.csr
+        privatekey_path: /tmp/tls.key
 
     - name: Create certificate
       community.crypto.x509_certificate:
-        path: "/tmp/tls.cert"
-        csr_path: "/tmp/tls.csr"
-        privatekey_path: "/tmp/tls.key"
+        path: /tmp/tls.cert
+        csr_path: /tmp/tls.csr
+        privatekey_path: /tmp/tls.key
         provider: selfsigned
 
 - name: Run target preparation
@@ -41,7 +41,7 @@
         dest: "{{ item.dest }}"
         mode: "{{ item.mode | default('0644') }}"
       loop:
-        - src: "/tmp/tls.cert"
+        - src: /tmp/tls.cert
           dest: "{{ dcgm_exporter_tls_server_config.cert_file }}"
-        - src: "/tmp/tls.key"
+        - src: /tmp/tls.key
           dest: "{{ dcgm_exporter_tls_server_config.key_file }}"

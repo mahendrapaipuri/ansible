@@ -22,14 +22,13 @@
     - ceems_lb_binary_local_dir | length == 0
     - not ceems_lb_skip_install
   block:
-
     - name: Download ceems_lb binary to local folder
       become: false
       ansible.builtin.get_url:
         url: "{{ ceems_lb_binary_url }}"
-        dest: "/tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz"
-        checksum: "sha256:{{ __ceems_lb_checksum }}"
-        mode: '0644'
+        dest: /tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz
+        checksum: sha256:{{ __ceems_lb_checksum }}
+        mode: "0644"
       register: _download_binary
       until: _download_binary is succeeded
       retries: 5
@@ -40,17 +39,17 @@
     - name: Unpack ceems_lb binary
       become: false
       ansible.builtin.unarchive:
-        src: "/tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz"
-        dest: "/tmp"
-        creates: "/tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}/ceems_lb"
+        src: /tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz
+        dest: /tmp
+        creates: /tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}/ceems_lb
       delegate_to: localhost
       check_mode: false
 
     - name: Propagate ceems_lb binaries
       ansible.builtin.copy:
-        src: "/tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}/ceems_lb"
+        src: /tmp/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}/ceems_lb
         dest: "{{ ceems_lb_binary_install_dir }}/ceems_lb"
-        mode: 0755
+        mode: "0755"
         owner: root
         group: root
       notify: restart ceems_lb
@@ -60,7 +59,7 @@
   ansible.builtin.copy:
     src: "{{ ceems_lb_binary_local_dir }}/ceems_lb"
     dest: "{{ ceems_lb_binary_install_dir }}/ceems_lb"
-    mode: 0755
+    mode: "0755"
     owner: root
     group: root
   when:

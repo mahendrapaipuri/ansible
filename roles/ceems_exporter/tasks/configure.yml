@@ -5,12 +5,12 @@
     dest: /etc/systemd/system/ceems_exporter.service
     owner: root
     group: root
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_exporter
 
 - name: Create ceems_exporter config directory
   ansible.builtin.file:
-    path: "/etc/ceems_exporter"
+    path: /etc/ceems_exporter
     state: directory
     owner: root
     group: root
@@ -22,7 +22,7 @@
     dest: /etc/ceems_exporter/config.yaml
     owner: "{{ ceems_exporter_system_user }}"
     group: "{{ ceems_exporter_system_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_exporter
 
 - name: Allow ceems_exporter to sudo ipmi-dcmi

@@ -2,7 +2,7 @@
 name: Check for new upstream releases
 on:
   schedule:
-    - cron: '21 14 * * *'
+    - cron: 21 14 * * *
   workflow_call:
     inputs:
       role-repos:

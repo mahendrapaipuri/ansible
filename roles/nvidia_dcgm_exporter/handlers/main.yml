@@ -1,6 +1,6 @@
 ---
 - name: Restart dcgm_exporter
-  listen: "restart dcgm_exporter"
+  listen: restart dcgm_exporter
   become: true
   ansible.builtin.systemd:
     daemon_reload: true

@@ -1,6 +1,6 @@
 ---
 - name: Restart ceems_api_server
-  listen: "restart ceems_api_server"
+  listen: restart ceems_api_server
   become: true
   ansible.builtin.systemd:
     daemon_reload: true

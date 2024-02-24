@@ -12,13 +12,12 @@ on:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
   # Run CI once per day (at 06:00 UTC)
   schedule:
-    - cron: '0 6 * * *'
+    - cron: "0 6 * * *"
   # Allow manual trigger (for newer antsibull-docs, sphinx-ansible-theme, ... versions)
   workflow_dispatch:
-
 jobs:
   build-docs:
     permissions:

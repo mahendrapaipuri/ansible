@@ -3,4 +3,4 @@ provisioner:
   inventory:
     group_vars:
       all:
-        ceems_exporter_web_listen_address: "127.0.0.1:9010"
+        ceems_exporter_web_listen_address: 127.0.0.1:9010

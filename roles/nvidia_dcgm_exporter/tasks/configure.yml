@@ -5,12 +5,12 @@
     dest: /etc/systemd/system/dcgm_exporter.service
     owner: root
     group: root
-    mode: 0640
+    mode: "0640"
   notify: restart dcgm_exporter
 
 - name: Create dcgm_exporter config directory
   ansible.builtin.file:
-    path: "/etc/dcgm_exporter"
+    path: /etc/dcgm_exporter
     state: directory
     owner: root
     group: root
@@ -22,7 +22,7 @@
     dest: /etc/dcgm_exporter/counters.csv
     owner: "{{ dcgm_exporter_system_user }}"
     group: "{{ dcgm_exporter_system_group }}"
-    mode: 0640
+    mode: "0640"
 
 - name: Copy the dcgm_exporter config file
   ansible.builtin.template:
@@ -30,7 +30,7 @@
     dest: /etc/dcgm_exporter/config.yaml
     owner: "{{ dcgm_exporter_system_user }}"
     group: "{{ dcgm_exporter_system_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart dcgm_exporter
 
 - name: Allow dcgm_exporter port in SELinux on RedHat OS family

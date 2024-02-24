@@ -3,6 +3,6 @@
   hosts: all
   any_errors_fatal: true
   tasks:
-    - name: "Run role"
+    - name: Run role
       ansible.builtin.include_role:
-        name: "mahendrapaipuri.ansible.{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+        name: mahendrapaipuri.ansible.{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}

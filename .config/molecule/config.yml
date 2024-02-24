@@ -75,4 +75,4 @@ verifier:
   name: testinfra
 provisioner:
   playbooks:
-    converge: "${MOLECULE_PROJECT_DIRECTORY}/../../.config/molecule/converge.yml"
+    converge: ${MOLECULE_PROJECT_DIRECTORY}/../../.config/molecule/converge.yml

@@ -5,12 +5,12 @@
     dest: /etc/systemd/system/ceems_api_server.service
     owner: root
     group: root
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_api_server
 
 - name: Create ceems_api_server config directory
   ansible.builtin.file:
-    path: "/etc/ceems_api_server"
+    path: /etc/ceems_api_server
     state: directory
     owner: root
     group: root
@@ -31,7 +31,7 @@
     dest: /etc/ceems_api_server/config.yaml
     owner: "{{ ceems_api_server_system_user }}"
     group: "{{ ceems_api_server_system_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_api_server
 
 - name: Make the ceems_api_server data directory

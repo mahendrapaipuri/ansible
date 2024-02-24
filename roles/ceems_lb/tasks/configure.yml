@@ -5,12 +5,12 @@
     dest: /etc/systemd/system/ceems_lb.service
     owner: root
     group: root
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_lb
 
 - name: Create ceems_lb config directory
   ansible.builtin.file:
-    path: "/etc/ceems_lb"
+    path: /etc/ceems_lb
     state: directory
     owner: root
     group: root
@@ -22,7 +22,7 @@
     dest: /etc/ceems_lb/web-config.yaml
     owner: "{{ ceems_lb_system_user }}"
     group: "{{ ceems_lb_system_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_lb
 
 - name: Copy the ceems_lb config file
@@ -31,7 +31,7 @@
     dest: /etc/ceems_lb/config.yaml
     owner: "{{ ceems_lb_system_user }}"
     group: "{{ ceems_lb_system_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart ceems_lb
 
 - name: Allow ceems_lb port in SELinux on RedHat OS family

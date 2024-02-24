@@ -16,9 +16,9 @@ jobs:
       matrix:
         ansible-core-versions: ${{ fromJson(inputs.ansible-core-versions) }}
 
-    name: "sanity-${{ matrix.ansible-core-versions }}"
+    name: sanity-${{ matrix.ansible-core-versions }}
     steps:
-      - name: "Perform sanity test with ansible-test"
+      - name: Perform sanity test with ansible-test
         uses: ansible-community/ansible-test-gh-action@release/v1
         with:
           ansible-core-version: ${{ matrix.ansible-core-versions }}
