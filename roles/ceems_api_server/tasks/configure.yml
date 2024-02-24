@@ -21,9 +21,9 @@
     path: "{{ ceems_api_server_data_backup_path }}"
     state: directory
     owner: "{{ ceems_api_server_system_user }}"
-    group: "{{ ceems_api_server_system_user }}"
+    group: "{{ ceems_api_server_system_group }}"
     mode: u+rwX,g+rwX,o-rwX
-  when: ceems_api_server_data_backup_path
+  when: ceems_api_server_data_backup_path | length > 0
 
 - name: Copy the ceems_api_server config file
   ansible.builtin.template:

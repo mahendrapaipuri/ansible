@@ -34,7 +34,7 @@ def test_systemd_properties(host):
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
     assert p.get("AmbientCapabilities") == "cap_setgid cap_setuid"
-    assert p.get("Environment") == "EMAPS_API=foo"
+    assert p.get("Environment") == "EMAPS_API_TOKEN=foo"
 
 
 @pytest.mark.parametrize("sockets", [
