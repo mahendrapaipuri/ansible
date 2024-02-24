@@ -43,7 +43,7 @@
       ansible.builtin.unarchive:
         src: /tmp/golang-{{ golang_version }}.linux-{{ go_arch }}.tar.gz
         dest: /tmp
-        creates: /tmp/golang-{{ golang_version }}.linux-{{ go_arch }}/go
+        creates: /tmp/go
       delegate_to: localhost
       check_mode: false
 
@@ -62,6 +62,9 @@
         chdir: /tmp/dcgm_exporter
         target: binary
       delegate_to: localhost
+      environment:
+        PATH: "/tmp/go/bin:{{ ansible_env.PATH }}"
+        GOPATH: "/tmp/gopath"
 
     - name: Propagate dcgm_exporter binaries
       ansible.builtin.copy:
