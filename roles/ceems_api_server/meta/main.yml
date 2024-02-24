@@ -25,13 +25,16 @@ galaxy_info:
   galaxy_tags:
     - monitoring
     - prometheus
-    - exporter
+    - api
     - metrics
     - batchjob
     - hpc
     - slurm
+    - cloud
+    - openstack
+    - k8s
+    - vm
+    - pod
     - cgroups
     - energy
-    - ipmi
-    - rapl
     - gpu

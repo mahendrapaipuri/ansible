@@ -27,11 +27,7 @@ galaxy_info:
     - prometheus
     - exporter
     - metrics
-    - batchjob
-    - hpc
-    - slurm
-    - cgroups
     - energy
-    - ipmi
-    - rapl
+    - dcgm
     - gpu
+    - nvidia
