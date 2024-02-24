@@ -18,6 +18,7 @@
   when: dcgm_exporter_system_user != "root"
 
 - name: Get binary
+  run_once: true
   when:
     - dcgm_exporter_binary_local_dir | length == 0
     - not dcgm_exporter_skip_install
