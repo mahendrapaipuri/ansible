@@ -29,7 +29,7 @@
   tasks:
     - name: Create sacct executable file
       ansible.builtin.copy:
-        src: "../sacct"
+        src: "../default/files/sacct"
         dest: /usr/bin/sacct
         owner: root
         group: root

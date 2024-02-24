@@ -26,6 +26,7 @@ def test_directories(host):
         assert d.is_directory
         assert d.exists
 
+
 def test_capabilities_property(host):
     s = host.service("ceems_exporter")
     p = s.systemd_properties
