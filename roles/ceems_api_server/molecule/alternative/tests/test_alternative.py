@@ -71,7 +71,7 @@ def test_systemd_properties(host):
 
 
 @pytest.mark.parametrize("socket", [
-     "tcp://127.0.0.1:8080"
+    "tcp://127.0.0.1:8080"
 ])
 def test_socket(host, socket):
     s = host.socket(socket)
