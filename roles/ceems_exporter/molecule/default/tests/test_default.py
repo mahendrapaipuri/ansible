@@ -3,43 +3,34 @@ __metaclass__ = type
 
 import os
 import testinfra.utils.ansible_runner
+import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_directories(host):
-    dirs = []
-    for dir in dirs:
-        d = host.file(dir)
-        assert d.is_directory
-        assert d.exists
+@pytest.mark.parametrize("file", [
+    "/etc/systemd/system/ceems_exporter.service",
+    "/usr/local/bin/ceems_exporter"
+])
+def test_files(host, file):
+    f = host.file(file)
+    assert f.exists
+    assert f.is_file
 
 
-def test_files(host):
-    files = [
-        "/etc/systemd/system/ceems_exporter.service",
-        "/usr/local/bin/ceems_exporter"
-    ]
-    for file in files:
-        f = host.file(file)
-        assert f.exists
-        assert f.is_file
-
-
-def test_permissions_didnt_change(host):
-    dirs = [
-        "/etc",
-        "/root",
-        "/usr",
-        "/var"
-    ]
-    for file in dirs:
-        f = host.file(file)
-        assert f.exists
-        assert f.is_directory
-        assert f.user == "root"
-        assert f.group == "root"
+@pytest.mark.parametrize("dir", [
+    "/etc",
+    "/root",
+    "/usr",
+    "/var"
+])
+def test_permissions_didnt_change(host, dir):
+    f = host.file(dir)
+    assert f.exists
+    assert f.is_directory
+    assert f.user == "root"
+    assert f.group == "root"
 
 
 def test_user(host):
@@ -68,10 +59,9 @@ def test_protecthome_property(host):
     assert p.get("ProtectHome") == "yes"
 
 
-def test_socket(host):
-    sockets = [
-        "tcp://127.0.0.1:9010"
-    ]
-    for socket in sockets:
-        s = host.socket(socket)
-        assert s.is_listening
+@pytest.mark.parametrize("socket", [
+    "tcp://127.0.0.1:9010",
+])
+def test_socket(host, socket):
+    s = host.socket(socket)
+    assert s.is_listening

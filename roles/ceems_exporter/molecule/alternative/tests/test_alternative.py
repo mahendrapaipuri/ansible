@@ -9,11 +9,12 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_directories(host):
-    dirs = ["/etc/ceems_exporter/"]
-    for dir in dirs:
-        d = host.file(dir)
-        assert d.exists
+@pytest.mark.parametrize("dir", [
+    "/etc/ceems_exporter/",
+])
+def test_directories(host, dir):
+    d = host.file(dir)
+    assert d.exists
 
 
 def test_service(host):
@@ -40,9 +41,9 @@ def test_systemd_properties(host):
         assert p.get("CapabilityBoundingSet") == "cap_setgid cap_setuid"
 
 
-@pytest.mark.parametrize("sockets", [
+@pytest.mark.parametrize("socket", [
     "tcp://127.0.0.1:8080",
     "tcp://127.0.1.1:8080",
 ])
-def test_socket(host, sockets):
-    assert host.socket(sockets).is_listening
+def test_socket(host, socket):
+    assert host.socket(socket).is_listening

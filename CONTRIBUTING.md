@@ -85,12 +85,3 @@ Remember: Code is generally read much more often than written.
 ### Use Markdown
 
 Wherever possible, please refrain from any other formats and stick to simple markdown.
-
-## Requirements regarding roles design 
-
-We are trying to create the best and most secure installation method for non-containerized prometheus stack components.
-To accomplish this all roles need to support:
-
-- current and at least one previous ansible version
-- systemd as the only available process manager
-- at least latest debian and CentOS distributions
