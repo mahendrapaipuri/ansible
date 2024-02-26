@@ -1,3 +1,4 @@
----
 ancestor: null
-releases: {}
+releases:
+  0.1.0:
+    release_date: '2024-02-26'
