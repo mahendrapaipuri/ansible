@@ -9,12 +9,12 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-@pytest.mark.parametrize("files", [
+@pytest.mark.parametrize("file", [
     "/etc/systemd/system/ceems_exporter.service",
     "/usr/local/bin/ceems_exporter"
 ])
-def test_files(host, files):
-    f = host.file(files)
+def test_files(host, file):
+    f = host.file(file)
     assert f.exists
     assert f.is_file
 
@@ -46,8 +46,11 @@ def test_service(host):
         raise  # Re-raise the original assertion error
 
 
-def test_socket(host):
-    s = host.socket("tcp://0.0.0.0:9010")
+@pytest.mark.parametrize("socket", [
+    "tcp://0.0.0.0:9010",
+])
+def test_socket(host, socket):
+    s = host.socket(socket)
     assert s.is_listening
 
 

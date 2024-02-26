@@ -1,12 +1,4 @@
 ---
-- name: Ensure passlib is installed
-  ansible.builtin.pip:
-    name:
-      - passlib
-    state: present
-  delegate_to: localhost
-  when: ceems_exporter_basic_auth_users | length > 0
-
 - name: Assert usage of systemd as an init system
   ansible.builtin.assert:
     that: ansible_service_mgr == 'systemd'
