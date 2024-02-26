@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("file", [
-    "/etc/systemd/system/ceems_exporter.service", 
+    "/etc/systemd/system/ceems_exporter.service",
     "/usr/local/bin/ceems_exporter"
 ])
 def test_files(host, file):
