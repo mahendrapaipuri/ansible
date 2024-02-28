@@ -17,6 +17,14 @@ def test_directories(host, dir):
     assert d.exists
 
 
+@pytest.mark.parametrize("file", [
+    "/etc/sudoers.d/allow-ipmi-dcmi",
+])
+def test_files(host, file):
+    f = host.file(file)
+    assert f.exists
+
+
 def test_service(host):
     s = host.service("ceems_exporter")
     try:
@@ -35,10 +43,7 @@ def test_systemd_properties(host):
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
     assert p.get("Environment") == "EMAPS_API_TOKEN=foo"
-    # Seems like this test will fail on centos 7
-    if host.system_info.distribution != "centos" and host.system_info.release != "7":
-        assert p.get("AmbientCapabilities") == "cap_setgid cap_setuid"
-        assert p.get("CapabilityBoundingSet") == "cap_setgid cap_setuid"
+    assert p.get("AmbientCapabilities") in [None, ""]
 
 
 @pytest.mark.parametrize("socket", [

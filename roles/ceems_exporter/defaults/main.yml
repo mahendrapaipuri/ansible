@@ -16,7 +16,7 @@ ceems_exporter_enabled_collectors: []
 ceems_exporter_disabled_collectors: []
 ceems_exporter_create_unique_jobids: false
 ceems_exporter_slurm_job_props_dir: ""
-ceems_exporter_gpu_type: nvidia
+ceems_exporter_gpu_type: ""
 ceems_exporter_gpu_job_map_dir: ""
 ceems_exporter_emissions_country_code: FR
 

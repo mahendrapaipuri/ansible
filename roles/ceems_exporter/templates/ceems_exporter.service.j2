@@ -61,17 +61,19 @@ StartLimitInterval=0
 {% endfor %}
 ProtectHome={{ ns.protect_home }}
 
-{%  if "sudo" not in ceems_exporter_ipmi_dcmi_cmd and
-        "ipmi_dcmi" not in ceems_exporter_disabled_collectors and
+{%  if "ipmi_dcmi" not in ceems_exporter_disabled_collectors and 
+        "sudo" not in ceems_exporter_ipmi_dcmi_cmd and
         ceems_exporter_system_user != "root" %}
 {%   set _ = ns.caps.extend(['CAP_SETUID', 'CAP_SETGID']) %}
 {% endif %}
-{% if ceems_exporter_create_unique_jobids and
-      "slurm" not in ceems_exporter_disabled_collectors and
+
+{% if "slurm" not in ceems_exporter_disabled_collectors and 
+      ceems_exporter_create_unique_jobids and
       not ceems_exporter_slurm_job_props_dir and
       ceems_exporter_system_user != "root" %}
 {%   set _ = ns.caps.extend(['CAP_SYS_PTRACE', 'CAP_DAC_READ_SEARCH']) %}
 {% endif %}
+
 {% if ceems_exporter_gpu_type and
       not ceems_exporter_gpu_job_map_dir and
       ceems_exporter_system_user != "root" %}

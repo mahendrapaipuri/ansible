@@ -57,15 +57,12 @@ argument_specs:
       ceems_exporter_gpu_type:
         description:
           - GPU type.
-          - Check the L(example scripts,https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d).
-        default: nvidia
-        choices:
-          - nvidia
-          - amd
+          - Currently, nVIDIA and AMD GPUs are supported.
+        default: ""
       ceems_exporter_gpu_job_map_dir:
         description:
           - Directory where files containing mapping of SLURM job ID to GPU ordinals are created by Epilog scripts.
-          - Currently, nVIDIA and AMD GPUs are supported.
+          - Check the L(example scripts,https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d).
         default: ""
       ceems_exporter_emissions_country_code:
         description: ISO 3166-1 alpha-3 Country code to export emission data.
