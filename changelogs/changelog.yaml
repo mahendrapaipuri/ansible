@@ -1,5 +1,10 @@
 ---
-ancestor: null
+ancestor:
 releases:
+  0.1.1:
+    changes:
+      bugfixes:
+        - 'bugfix: Minor fixes (https://github.com/mahendrapaipuri/ansible/pull/4)'
+    release_date: '2024-02-29'
   0.1.0:
     release_date: '2024-02-26'
