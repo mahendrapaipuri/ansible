@@ -253,7 +253,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_exporter_gpu_job_map_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Directory where files containing mapping of SLURM job ID to GPU ordinals are created by Epilog scripts.</p>
-<p>Currently, nVIDIA and AMD GPUs are supported.</p>
+<p>Check the <a class="reference external" href="https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d">example scripts</a>.</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
 </div></td>
 </tr>
@@ -262,12 +262,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_exporter_gpu_type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>GPU type.</p>
-<p>Check the <a class="reference external" href="https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d">example scripts</a>.</p>
-<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
-<ul class="simple">
-<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;nvidia&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;amd&quot;</span></code></p></li>
-</ul>
+<p>Currently, nVIDIA and AMD GPUs are supported.</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
