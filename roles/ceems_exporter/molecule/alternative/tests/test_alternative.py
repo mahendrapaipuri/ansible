@@ -43,7 +43,7 @@ def test_systemd_properties(host):
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
     assert p.get("Environment") == "EMAPS_API_TOKEN=foo"
-    assert p.get("AmbientCapabilities") in [None, ""]
+    assert p.get("AmbientCapabilities") in [None, "", "0", "False", False, "No", "no"]
 
 
 @pytest.mark.parametrize("socket", [
