@@ -65,3 +65,5 @@ argument_specs:
           - Additional CLI arguments that will be passed to DCGM exporter
         type: list
         elements: str
+      nvidia_dcgm_exporter_version:
+        default: 3.3.5-3.4.0
