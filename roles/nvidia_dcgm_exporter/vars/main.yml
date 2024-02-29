@@ -7,6 +7,8 @@ go_arch_map:
   armv6l: armv6
 
 go_arch: "{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+
 _nvidia_dcgm_exporter_repo: NVIDIA/dcgm-exporter
 _github_api_headers: "{{ {'GITHUB_TOKEN': lookup('ansible.builtin.env', 'GITHUB_TOKEN')} if (lookup('ansible.builtin.env', 'GITHUB_TOKEN')) else {} }}"
-_golang_download_url: https://go.dev/dl/go{{ golang_version }}.linux-{{ go_arch }}.tar.gz
+_golang_version: 1.21.5
+_golang_download_url: https://go.dev/dl/go{{ _golang_version }}.linux-{{ go_arch }}.tar.gz

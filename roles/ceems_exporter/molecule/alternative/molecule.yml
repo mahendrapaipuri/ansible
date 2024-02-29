@@ -15,8 +15,10 @@ provisioner:
         ceems_exporter_basic_auth_users:
           randomuser: examplepassword
         go_arch: amd64
-        ceems_exporter_slurm_job_props_dir: /run/slurmjobprops
-        ceems_exporter_gpu_job_map_dir: /run/gpujobmap
-        ceems_exporter_ipmi_dcmi_cmd: ipmi-dcmi
+        ceems_exporter_enabled_collectors:
+          - emissions
+        ceems_exporter_disabled_collectors:
+          - slurm
+        ceems_exporter_ipmi_dcmi_cmd: "sudo ipmi-dcmi"
         ceems_exporter_env_vars:
           EMAPS_API_TOKEN: foo

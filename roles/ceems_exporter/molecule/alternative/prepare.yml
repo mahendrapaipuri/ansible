@@ -45,12 +45,3 @@
           dest: "{{ ceems_exporter_tls_server_config.cert_file }}"
         - src: /tmp/tls.key
           dest: "{{ ceems_exporter_tls_server_config.key_file }}"
-
-    - name: Create slurm job props and GPU job map directories
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: directory
-        mode: "0755"
-      loop:
-        - "{{ ceems_exporter_slurm_job_props_dir }}"
-        - "{{ ceems_exporter_gpu_job_map_dir }}"

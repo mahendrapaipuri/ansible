@@ -31,7 +31,8 @@
     user: "{{ ceems_exporter_system_user }}"
     commands: /usr/sbin/ipmi-dcmi
   when:
-    - '"ipmi_dcmi" in ceems_exporter_disabled_collectors'
+    - 'not "ipmi_dcmi" in ceems_exporter_disabled_collectors'
+    - '"sudo" in ceems_exporter_ipmi_dcmi_cmd'
     - ceems_exporter_system_user != "root"
 
 - name: Allow ceems_exporter port in SELinux on RedHat OS family
