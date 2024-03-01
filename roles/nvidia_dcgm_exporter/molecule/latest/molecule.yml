@@ -3,4 +3,4 @@ provisioner:
   inventory:
     group_vars:
       all:
-        dcgm_exporter_version: main
+        nvidia_dcgm_exporter_version: main

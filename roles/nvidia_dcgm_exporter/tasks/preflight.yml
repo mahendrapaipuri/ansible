@@ -24,63 +24,63 @@
   ansible.builtin.assert:
     that:
       - >-
-        [dcgm_exporter_web_listen_address] |
+        [nvidia_dcgm_exporter_web_listen_address] |
           flatten |
           reject('match', '.+:\\d+$') |
           list |
           length == 0
 
 - name: Assert that TLS config is correct
-  when: dcgm_exporter_tls_server_config | length > 0
+  when: nvidia_dcgm_exporter_tls_server_config | length > 0
   block:
     - name: Assert that TLS key and cert path are set
       ansible.builtin.assert:
         that:
-          - dcgm_exporter_tls_server_config.cert_file is defined
-          - dcgm_exporter_tls_server_config.key_file is defined
+          - nvidia_dcgm_exporter_tls_server_config.cert_file is defined
+          - nvidia_dcgm_exporter_tls_server_config.key_file is defined
 
     - name: Check existence of TLS cert file
       ansible.builtin.stat:
-        path: "{{ dcgm_exporter_tls_server_config.cert_file }}"
-      register: __dcgm_exporter_cert_file
+        path: "{{ nvidia_dcgm_exporter_tls_server_config.cert_file }}"
+      register: __nvidia_dcgm_exporter_cert_file
 
     - name: Check existence of TLS key file
       ansible.builtin.stat:
-        path: "{{ dcgm_exporter_tls_server_config.key_file }}"
-      register: __dcgm_exporter_key_file
+        path: "{{ nvidia_dcgm_exporter_tls_server_config.key_file }}"
+      register: __nvidia_dcgm_exporter_key_file
 
     - name: Assert that TLS key and cert are present
       ansible.builtin.assert:
         that:
-          - "{{ __dcgm_exporter_cert_file.stat.exists }}"
-          - "{{ __dcgm_exporter_key_file.stat.exists }}"
+          - "{{ __nvidia_dcgm_exporter_cert_file.stat.exists }}"
+          - "{{ __nvidia_dcgm_exporter_key_file.stat.exists }}"
 
-- name: Check if dcgm_exporter is installed
+- name: Check if nvidia_dcgm_exporter is installed
   ansible.builtin.stat:
-    path: "{{ dcgm_exporter_binary_install_dir }}/dcgm_exporter"
-  register: __dcgm_exporter_is_installed
+    path: "{{ nvidia_dcgm_exporter_binary_install_dir }}/nvidia_dcgm_exporter"
+  register: __nvidia_dcgm_exporter_is_installed
   check_mode: false
   tags:
-    - dcgm_exporter_install
+    - nvidia_dcgm_exporter_install
 
-- name: Gather currently installed dcgm_exporter version (if any)
-  ansible.builtin.command: "{{ dcgm_exporter_binary_install_dir }}/dcgm_exporter --version"
+- name: Gather currently installed nvidia_dcgm_exporter version (if any)
+  ansible.builtin.command: "{{ nvidia_dcgm_exporter_binary_install_dir }}/nvidia_dcgm_exporter --version"
   changed_when: false
-  register: __dcgm_exporter_current_version_output
+  register: __nvidia_dcgm_exporter_current_version_output
   check_mode: false
-  when: __dcgm_exporter_is_installed.stat.exists
+  when: __nvidia_dcgm_exporter_is_installed.stat.exists
   tags:
-    - dcgm_exporter_install
+    - nvidia_dcgm_exporter_install
 
 - name: Discover latest version
   ansible.builtin.set_fact:
-    dcgm_exporter_version: "{{ (lookup('url', 'https://api.github.com/repos/{{ _nvidia_dcgm_exporter_repo }}/releases/latest',
+    nvidia_dcgm_exporter_version: "{{ (lookup('url', 'https://api.github.com/repos/{{ _nvidia_nvidia_dcgm_exporter_repo }}/releases/latest',
       headers=_github_api_headers, split_lines=False) | from_json).get('tag_name') | replace('v',
       '') }}"
   run_once: true
-  until: dcgm_exporter_version is version('0.0.0', '>=')
+  until: nvidia_dcgm_exporter_version is version('0.0.0', '>=')
   retries: 10
   when:
-    - dcgm_exporter_version == "latest"
-    - dcgm_exporter_binary_local_dir | length == 0
-    - not dcgm_exporter_skip_install
+    - nvidia_dcgm_exporter_version == "latest"
+    - nvidia_dcgm_exporter_binary_local_dir | length == 0
+    - not nvidia_dcgm_exporter_skip_install

@@ -1,10 +1,10 @@
 ---
-- name: Restart dcgm_exporter
-  listen: restart dcgm_exporter
+- name: Restart nvidia_dcgm_exporter
+  listen: restart nvidia_dcgm_exporter
   become: true
   ansible.builtin.systemd:
     daemon_reload: true
-    name: dcgm_exporter
+    name: nvidia_dcgm_exporter
     state: restarted
   when:
     - not ansible_check_mode

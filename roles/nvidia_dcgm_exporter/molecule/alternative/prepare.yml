@@ -27,9 +27,9 @@
   hosts: all
   any_errors_fatal: true
   tasks:
-    - name: Create dcgm_exporter cert dir
+    - name: Create nvidia_dcgm_exporter cert dir
       ansible.builtin.file:
-        path: "{{ dcgm_exporter_tls_server_config.cert_file | dirname }}"
+        path: "{{ nvidia_dcgm_exporter_tls_server_config.cert_file | dirname }}"
         state: directory
         owner: root
         group: root
@@ -42,6 +42,6 @@
         mode: "{{ item.mode | default('0644') }}"
       loop:
         - src: /tmp/tls.cert
-          dest: "{{ dcgm_exporter_tls_server_config.cert_file }}"
+          dest: "{{ nvidia_dcgm_exporter_tls_server_config.cert_file }}"
         - src: /tmp/tls.key
-          dest: "{{ dcgm_exporter_tls_server_config.key_file }}"
+          dest: "{{ nvidia_dcgm_exporter_tls_server_config.key_file }}"

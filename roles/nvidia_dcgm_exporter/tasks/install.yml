@@ -1,26 +1,26 @@
 ---
-- name: Create the dcgm_exporter group
+- name: Create the nvidia_dcgm_exporter group
   ansible.builtin.group:
-    name: "{{ dcgm_exporter_system_group }}"
+    name: "{{ nvidia_dcgm_exporter_system_group }}"
     state: present
     system: true
-  when: dcgm_exporter_system_group != "root"
+  when: nvidia_dcgm_exporter_system_group != "root"
 
-- name: Create the dcgm_exporter user
+- name: Create the nvidia_dcgm_exporter user
   ansible.builtin.user:
-    name: "{{ dcgm_exporter_system_user }}"
-    groups: "{{ dcgm_exporter_system_group }}"
+    name: "{{ nvidia_dcgm_exporter_system_user }}"
+    groups: "{{ nvidia_dcgm_exporter_system_group }}"
     append: true
     shell: /usr/sbin/nologin
     system: true
     create_home: false
     home: /
-  when: dcgm_exporter_system_user != "root"
+  when: nvidia_dcgm_exporter_system_user != "root"
 
 - name: Get binary
   when:
-    - dcgm_exporter_binary_local_dir | length == 0
-    - not dcgm_exporter_skip_install
+    - nvidia_dcgm_exporter_binary_local_dir | length == 0
+    - not nvidia_dcgm_exporter_skip_install
   tags:
     - molecule-idempotence-notest
   block:
@@ -48,13 +48,13 @@
       delegate_to: localhost
       check_mode: false
 
-    - name: Clone dcgm_exporter repository to local folder
+    - name: Clone nvidia_dcgm_exporter repository to local folder
       become: false
       run_once: true
       ansible.builtin.git:
-        repo: "{{ dcgm_exporter_git_url }}"
-        dest: /tmp/dcgm_exporter
-        version: "{{ dcgm_exporter_version }}"
+        repo: "{{ nvidia_dcgm_exporter_git_url }}"
+        dest: /tmp/nvidia_dcgm_exporter
+        version: "{{ nvidia_dcgm_exporter_version }}"
       register: _clone_repo
       delegate_to: localhost
 
@@ -62,31 +62,31 @@
       become: false
       run_once: true
       community.general.make:
-        chdir: /tmp/dcgm_exporter
+        chdir: /tmp/nvidia_dcgm_exporter
         target: binary
       delegate_to: localhost
       environment:
         PATH: "/tmp/go/bin:{{ ansible_env.PATH }}"
         GOPATH: "/tmp/gopath"
 
-    - name: Propagate dcgm_exporter binaries
+    - name: Propagate nvidia_dcgm_exporter binaries
       ansible.builtin.copy:
-        src: /tmp/dcgm_exporter/cmd/dcgm-exporter/dcgm-exporter
-        dest: "{{ dcgm_exporter_binary_install_dir }}/dcgm_exporter"
+        src: /tmp/nvidia_dcgm_exporter/cmd/dcgm-exporter/dcgm-exporter
+        dest: "{{ nvidia_dcgm_exporter_binary_install_dir }}/nvidia_dcgm_exporter"
         mode: "0755"
         owner: root
         group: root
-      notify: restart dcgm_exporter
+      notify: restart nvidia_dcgm_exporter
       when: not ansible_check_mode
 
-- name: Propagate locally distributed dcgm_exporter binary
+- name: Propagate locally distributed nvidia_dcgm_exporter binary
   ansible.builtin.copy:
-    src: "{{ dcgm_exporter_binary_local_dir }}/dcgm_exporter"
-    dest: "{{ dcgm_exporter_binary_install_dir }}/dcgm_exporter"
+    src: "{{ nvidia_dcgm_exporter_binary_local_dir }}/nvidia_dcgm_exporter"
+    dest: "{{ nvidia_dcgm_exporter_binary_install_dir }}/nvidia_dcgm_exporter"
     mode: "0755"
     owner: root
     group: root
   when:
-    - dcgm_exporter_binary_local_dir | length > 0
-    - not dcgm_exporter_skip_install
-  notify: restart dcgm_exporter
+    - nvidia_dcgm_exporter_binary_local_dir | length > 0
+    - not nvidia_dcgm_exporter_skip_install
+  notify: restart nvidia_dcgm_exporter

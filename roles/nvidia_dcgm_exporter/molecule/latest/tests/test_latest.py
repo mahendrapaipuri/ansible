@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/etc/dcgm_exporter",
+    "/etc/nvidia_dcgm_exporter",
 ])
 def test_directories(host, dir):
     d = host.file(dir)
@@ -19,8 +19,8 @@ def test_directories(host, dir):
 
 
 @pytest.mark.parametrize("files", [
-    "/etc/systemd/system/dcgm_exporter.service",
-    "/usr/local/bin/dcgm_exporter"
+    "/etc/systemd/system/nvidia_dcgm_exporter.service",
+    "/usr/local/bin/nvidia_dcgm_exporter"
 ])
 def test_files(host, files):
     f = host.file(files)

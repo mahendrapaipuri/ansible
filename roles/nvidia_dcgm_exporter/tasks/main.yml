@@ -4,13 +4,13 @@
     file: preflight.yml
     apply:
       tags:
-        - dcgm_exporter_install
-        - dcgm_exporter_configure
-        - dcgm_exporter_run
+        - nvidia_dcgm_exporter_install
+        - nvidia_dcgm_exporter_configure
+        - nvidia_dcgm_exporter_run
   tags:
-    - dcgm_exporter_install
-    - dcgm_exporter_configure
-    - dcgm_exporter_run
+    - nvidia_dcgm_exporter_install
+    - nvidia_dcgm_exporter_configure
+    - nvidia_dcgm_exporter_run
 
 - name: Install
   ansible.builtin.include_tasks:
@@ -18,16 +18,16 @@
     apply:
       become: true
       tags:
-        - dcgm_exporter_install
+        - nvidia_dcgm_exporter_install
   when:
-    ( not __dcgm_exporter_is_installed.stat.exists ) or
-      ( (__dcgm_exporter_current_version_output.stderr_lines | length > 0) and
-      (__dcgm_exporter_current_version_output.stderr_lines[0].split(" ")[2] != dcgm_exporter_version) ) or
-      ( (__dcgm_exporter_current_version_output.stdout_lines | length > 0) and
-      (__dcgm_exporter_current_version_output.stdout_lines[0].split(" ")[2] != dcgm_exporter_version)
-    ) or ( dcgm_exporter_binary_local_dir | length > 0 )
+    ( not __nvidia_dcgm_exporter_is_installed.stat.exists ) or
+      ( (__nvidia_dcgm_exporter_current_version_output.stderr_lines | length > 0) and
+      (__nvidia_dcgm_exporter_current_version_output.stderr_lines[0].split(" ")[2] != nvidia_dcgm_exporter_version) ) or
+      ( (__nvidia_dcgm_exporter_current_version_output.stdout_lines | length > 0) and
+      (__nvidia_dcgm_exporter_current_version_output.stdout_lines[0].split(" ")[2] != nvidia_dcgm_exporter_version)
+    ) or ( nvidia_dcgm_exporter_binary_local_dir | length > 0 )
   tags:
-    - dcgm_exporter_install
+    - nvidia_dcgm_exporter_install
 
 - name: SELinux
   ansible.builtin.include_tasks:
@@ -35,10 +35,10 @@
     apply:
       become: true
       tags:
-        - dcgm_exporter_configure
+        - nvidia_dcgm_exporter_configure
   when: ansible_selinux.status == "enabled"
   tags:
-    - dcgm_exporter_configure
+    - nvidia_dcgm_exporter_configure
 
 - name: Configure
   ansible.builtin.include_tasks:
@@ -46,18 +46,18 @@
     apply:
       become: true
       tags:
-        - dcgm_exporter_configure
+        - nvidia_dcgm_exporter_configure
   tags:
-    - dcgm_exporter_configure
+    - nvidia_dcgm_exporter_configure
 
 - name: Ensure DCGM Exporter is enabled on boot
   become: true
   ansible.builtin.systemd:
     daemon_reload: true
-    name: dcgm_exporter
+    name: nvidia_dcgm_exporter
     enabled: true
     state: started
   when:
     - not ansible_check_mode
   tags:
-    - dcgm_exporter_run
+    - nvidia_dcgm_exporter_run

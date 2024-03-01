@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/etc/dcgm_exporter",
+    "/etc/nvidia_dcgm_exporter",
 ])
 def test_directories(host, dir):
     d = host.file(dir)
@@ -19,9 +19,9 @@ def test_directories(host, dir):
 
 
 @pytest.mark.parametrize("file", [
-    "/etc/systemd/system/dcgm_exporter.service",
-    "/usr/local/bin/dcgm_exporter",
-    "/etc/dcgm_exporter/counters.csv"
+    "/etc/systemd/system/nvidia_dcgm_exporter.service",
+    "/usr/local/bin/nvidia_dcgm_exporter",
+    "/etc/nvidia_dcgm_exporter/counters.csv"
 ])
 def test_files(host, file):
     f = host.file(file)
@@ -51,7 +51,7 @@ def test_user(host):
 
 
 def test_protecthome_property(host):
-    s = host.service("dcgm_exporter")
+    s = host.service("nvidia_dcgm_exporter")
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
 
