@@ -122,7 +122,7 @@
 <h1>mahendrapaipuri.ansible.nvidia_dcgm_exporter role – nVIDIA DCGM Exporter<a class="headerlink" href="#mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-nvidia-dcgm-exporter" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.1.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.1.2).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">mahendrapaipuri.ansible</span></code>.</p>
@@ -157,57 +157,57 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </thead>
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-basic-auth-users"><strong>dcgm_exporter_basic_auth_users</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_basic_auth_users" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-basic-auth-users"><strong>nvidia_dcgm_exporter_basic_auth_users</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_basic_auth_users" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_binary_install_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-binary-install-dir"><strong>dcgm_exporter_binary_install_dir</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_binary_install_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_binary_install_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-binary-install-dir"><strong>nvidia_dcgm_exporter_binary_install_dir</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_binary_install_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
-<p>Directory to install dcgm_exporter binary</p>
+<p>Directory to install nvidia_dcgm_exporter binary</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;/usr/local/bin&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_binary_local_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-binary-local-dir"><strong>dcgm_exporter_binary_local_dir</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_binary_local_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_binary_local_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-binary-local-dir"><strong>nvidia_dcgm_exporter_binary_local_dir</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_binary_local_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Enables the use of local packages instead of those distributed on github.</p>
-<p>The parameter may be set to a directory where the <code class="docutils literal notranslate"><span class="pre">dcgm_exporter</span></code> binary is stored on the host where ansible is run.</p>
-<p>This overrides the <em>dcgm_exporter_version</em> parameter</p>
+<p>The parameter may be set to a directory where the <code class="docutils literal notranslate"><span class="pre">nvidia_dcgm_exporter</span></code> binary is stored on the host where ansible is run.</p>
+<p>This overrides the <em>nvidia_dcgm_exporter_version</em> parameter</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_cli_args"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-cli-args"><strong>dcgm_exporter_cli_args</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_cli_args" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_cli_args"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-cli-args"><strong>nvidia_dcgm_exporter_cli_args</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_cli_args" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
 <p>Additional CLI arguments that will be passed to DCGM exporter</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_git_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-git-url"><strong>dcgm_exporter_git_url</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_git_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_git_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-git-url"><strong>nvidia_dcgm_exporter_git_url</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_git_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>URL of the dcgm exporter git repository</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;https://github.com/NVIDIA/dcgm-exporter.git&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-http-server-config"><strong>dcgm_exporter_http_server_config</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_http_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-http-server-config"><strong>nvidia_dcgm_exporter_http_server_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_http_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Config for HTTP/2 support.</p>
-<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">dcgm_exporter docs</a>.</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">Prometheus docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_metrics_config_file"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-metrics-config-file"><strong>dcgm_exporter_metrics_config_file</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_metrics_config_file" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_metrics_config_file"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-metrics-config-file"><strong>nvidia_dcgm_exporter_metrics_config_file</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_metrics_config_file" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Path to CSV file that containe list of collectors for dcgm exporter.</p>
 <p>An example file can be found at <a class="reference external" href="https://raw.githubusercontent.com/NVIDIA/dcgm-exporter/main/etc/default-counters.csv">dcgm-exporter repo</a></p>
@@ -215,8 +215,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-skip-install"><strong>dcgm_exporter_skip_install</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-skip-install"><strong>nvidia_dcgm_exporter_skip_install</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>DCGM exporter installation tasks gets skipped when set to true.</p>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
@@ -227,8 +227,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_system_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-system-group"><strong>dcgm_exporter_system_group</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_system_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-system-group"><strong>nvidia_dcgm_exporter_system_group</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
 <p>System group for batch job exporter</p>
@@ -236,8 +236,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_system_user"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-system-user"><strong>dcgm_exporter_system_user</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_system_user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_system_user"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-system-user"><strong>nvidia_dcgm_exporter_system_user</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_system_user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
 <p>DCGM exporter user</p>
@@ -245,24 +245,24 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_tls_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-tls-server-config"><strong>dcgm_exporter_tls_server_config</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_tls_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_tls_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-tls-server-config"><strong>nvidia_dcgm_exporter_tls_server_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_tls_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration for TLS authentication.</p>
-<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">dcgm_exporter docs</a>.</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">Prometheus docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_version"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-version"><strong>dcgm_exporter_version</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_version"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-version"><strong>nvidia_dcgm_exporter_version</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>DCGM exporter package version. Also accepts latest as parameter.</p>
-<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;3.3.0-3.2.0&quot;</span></code></p>
+<td><div class="ansible-option-cell"><p>nVIDIA DCGM exporter package version. Also accepts latest as parameter.</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;3.3.5-3.4.0&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dcgm_exporter_web_listen_address"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-dcgm-exporter-web-listen-address"><strong>dcgm_exporter_web_listen_address</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dcgm_exporter_web_listen_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--nvidia_dcgm_exporter_web_listen_address"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-nvidia-dcgm-exporter-role-parameter-main-nvidia-dcgm-exporter-web-listen-address"><strong>nvidia_dcgm_exporter_web_listen_address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nvidia_dcgm_exporter_web_listen_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Address on which dcgm exporter will listen</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;0.0.0.0:9400&quot;</span></code></p>
