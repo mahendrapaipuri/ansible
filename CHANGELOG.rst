@@ -4,6 +4,14 @@ mahendrapaipuri.Ansible Release Notes
 
 .. contents:: Topics
 
+v0.2.3
+======
+
+Bugfixes
+--------
+
+- bugfix: Correct ceems_api_server binary name (https://github.com/mahendrapaipuri/ansible/pull/10)
+
 v0.2.2
 ======
 

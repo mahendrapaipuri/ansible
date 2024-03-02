@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.2.3:
+    changes:
+      bugfixes:
+        - 'bugfix: Correct ceems_api_server binary name (https://github.com/mahendrapaipuri/ansible/pull/10)'
+    release_date: '2024-03-02'
   0.2.2:
     changes:
       trivial:
