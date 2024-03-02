@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.2.1:
+    changes:
+      trivial:
+        - 'patch: Add ceems_lb molecule tests (https://github.com/mahendrapaipuri/ansible/pull/7)'
+    release_date: '2024-03-02'
   0.2.0:
     changes:
       minor_changes:
