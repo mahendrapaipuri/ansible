@@ -1,0 +1,14 @@
+---
+provisioner:
+  inventory:
+    group_vars:
+      all:
+        litestream_system_group: litestream
+        litestream_config:
+          dbs:
+            - path: /var/lib/db/sample1.db
+              replicas:
+                - path: /var/lib/backup_sample
+            - path: /var/lib/db/sample2.db
+              replicas:
+                - path: /nfs/db/backups/backup_sample

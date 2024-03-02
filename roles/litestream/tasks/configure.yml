@@ -1,0 +1,66 @@
+---
+- name: Get DB backup base directories
+  ansible.builtin.set_fact:
+    _read_write_paths: |-
+      {% set ns = namespace(read_write_paths=[]) %}
+      {% for c in litestream_config['dbs'] %}
+      {%   set _ = ns.read_write_paths.append('/'.join(c['path'].split('/')[:-1])) %}
+      {% for r in c['replicas'] %}
+      {% if 'path' in r.keys() %}
+      {%   set _ = ns.read_write_paths.append('/'.join(r['path'].split('/')[:-1])) %}
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      {{ ns.read_write_paths | from_yaml | unique }}
+
+- name: Get DB backup paths
+  ansible.builtin.set_fact:
+    _db_backup_paths: |-
+      {% set ns = namespace(db_backup_paths=[]) %}
+      {% for c in litestream_config['dbs'] %}
+      {% for r in c['replicas'] %}
+      {% if 'path' in r.keys() %}
+      {%   set _ = ns.db_backup_paths.append(r['path']) %}
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      {{ ns.db_backup_paths | from_yaml | unique }}
+
+- name: Create litestream DB backup directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ litestream_system_user }}"
+    group: "{{ litestream_system_group }}"
+    mode: u+rwX,g+rwX,o-rwX
+  when: litestream_system_user != "root"
+  loop: "{{ _db_backup_paths }}"
+  loop_control:
+    label: "Creating DB backup directory {{ item }}"
+
+- name: Copy the litestream systemd service file
+  ansible.builtin.template:
+    src: litestream.service.j2
+    dest: /etc/systemd/system/litestream.service
+    owner: root
+    group: root
+    mode: "0640"
+  notify: restart litestream
+
+- name: Create litestream config directory
+  ansible.builtin.file:
+    path: /etc/litestream
+    state: directory
+    owner: root
+    group: "{{ litestream_system_group }}"
+    mode: u+rwX,g+rwX,o+rX
+
+- name: Copy the litestream config file
+  ansible.builtin.copy:
+    dest: /etc/litestream/config.yml
+    owner: "{{ litestream_system_user }}"
+    group: "{{ litestream_system_group }}"
+    mode: "0640"
+    content: |
+      {{ litestream_config | to_nice_yaml | indent(2, true) }}
+  notify: restart litestream
