@@ -39,7 +39,7 @@
     path: "{{ ceems_api_server_data_path }}"
     state: directory
     owner: "{{ ceems_api_server_system_user }}"
-    group: "{{ ceems_api_server_system_user }}"
+    group: "{{ ceems_api_server_system_group }}"
     mode: u+rwX,g+rwX,o-rwX
   notify: restart ceems_api_server
 
