@@ -1,8 +1,10 @@
 ---
-ceems_api_server_version: "0.1.0-rc.4"
+ceems_api_server_version: 0.1.0-rc.5
 ceems_api_server_binary_local_dir: ""
-ceems_api_server_binary_url: https://github.com/{{ _ceems_api_server_repo }}/releases/download/v{{ ceems_api_server_version }}/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz  # noqa yaml[line-length]
-ceems_api_server_checksums_url: https://github.com/{{ _ceems_api_server_repo }}/releases/download/v{{ ceems_api_server_version }}/sha256sums.txt  # noqa yaml[line-length]
+ceems_api_server_binary_url: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/\
+                              v{{ ceems_api_server_version }}/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz"
+ceems_api_server_checksums_url: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/\
+                              v{{ ceems_api_server_version }}/sha256sums.txt"
 ceems_api_server_skip_install: false
 
 ceems_api_server_web_listen_address: "0.0.0.0:9020"

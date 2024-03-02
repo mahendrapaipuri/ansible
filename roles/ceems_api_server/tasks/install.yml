@@ -45,13 +45,13 @@
       ansible.builtin.unarchive:
         src: /tmp/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz
         dest: /tmp
-        creates: /tmp/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}/ceems_server
+        creates: /tmp/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}/ceems_api_server
       delegate_to: localhost
       check_mode: false
 
     - name: Propagate ceems_api_server binaries
       ansible.builtin.copy:
-        src: /tmp/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}/ceems_server
+        src: /tmp/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}/ceems_api_server
         dest: "{{ ceems_api_server_binary_install_dir }}/ceems_api_server"
         mode: "0755"
         owner: root
