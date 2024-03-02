@@ -124,7 +124,7 @@
 <h1>mahendrapaipuri.ansible.litestream role – Litestream replicator<a class="headerlink" href="#mahendrapaipuri-ansible-litestream-role-litestream-replicator" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.2.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.2.1).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">mahendrapaipuri.ansible</span></code>.</p>
@@ -201,6 +201,15 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--litestream_create_system_user_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-create-system-user-group"><strong>litestream_create_system_user_group</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--litestream_create_system_user_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p><em>Advanced</em></p>
+<p>Create system user and group for litestream</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">true</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--litestream_env_vars"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-env-vars"><strong>litestream_env_vars</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--litestream_env_vars" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -208,7 +217,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Environment variables will be passed to Litestream</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--litestream_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-skip-install"><strong>litestream_skip_install</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--litestream_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -220,7 +229,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--litestream_system_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-system-group"><strong>litestream_system_group</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--litestream_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -229,7 +238,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;root&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--litestream_system_user"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-system-user"><strong>litestream_system_user</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--litestream_system_user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -238,7 +247,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;root&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--litestream_version"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-litestream-role-parameter-main-litestream-version"><strong>litestream_version</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--litestream_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>

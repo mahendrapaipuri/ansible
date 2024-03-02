@@ -124,7 +124,7 @@
 <h1>mahendrapaipuri.ansible.ceems_api_server role – CEEMS API Server<a class="headerlink" href="#mahendrapaipuri-ansible-ceems-api-server-role-ceems-api-server" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.2.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.2.1).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">mahendrapaipuri.ansible</span></code>.</p>
@@ -177,7 +177,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_binary_install_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
-<p>Directory to install ceems_api_server binary</p>
+<p>Directory to install CEEMS API server binary</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;/usr/local/bin&quot;</span></code></p>
 </div></td>
 </tr>
@@ -215,6 +215,15 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_create_system_user_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-create-system-user-group"><strong>ceems_api_server_create_system_user_group</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_create_system_user_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p><em>Advanced</em></p>
+<p>Create system user and group for CEEMS API server</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">true</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_data_backup_interval"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-data-backup-interval"><strong>ceems_api_server_data_backup_interval</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_data_backup_interval" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -223,7 +232,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_data_backup_path"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-data-backup-path"><strong>ceems_api_server_data_backup_path</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_data_backup_path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -232,7 +241,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_data_path"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-data-path"><strong>ceems_api_server_data_path</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_data_path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -241,7 +250,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;/var/lib/ceems&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_data_retention_period"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-data-retention-period"><strong>ceems_api_server_data_retention_period</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_data_retention_period" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -250,7 +259,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;1y&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_data_update_interval"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-data-update-interval"><strong>ceems_api_server_data_update_interval</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_data_update_interval" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -260,7 +269,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;15m&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_env_vars"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-env-vars"><strong>ceems_api_server_env_vars</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_env_vars" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -268,7 +277,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Environment variables will be passed to CEEMS API server</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-http-server-config"><strong>ceems_api_server_http_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_http_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -276,7 +285,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">ceems_api_server docs</a>.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_resource_manager"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-resource-manager"><strong>ceems_api_server_resource_manager</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_resource_manager" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -288,7 +297,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-skip-install"><strong>ceems_api_server_skip_install</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -300,16 +309,16 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_system_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-system-group"><strong>ceems_api_server_system_group</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
-<p>System group for batch job stats server</p>
+<p>System group for CEEMS API server server</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;ceems&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_system_user"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-system-user"><strong>ceems_api_server_system_user</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_system_user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -318,7 +327,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;ceems&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_tls_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-tls-server-config"><strong>ceems_api_server_tls_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_tls_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -326,7 +335,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">ceems_api_server docs</a>.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_version"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-version"><strong>ceems_api_server_version</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -334,7 +343,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;0.1.0&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_web_listen_address"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-api-server-role-parameter-main-ceems-api-server-web-listen-address"><strong>ceems_api_server_web_listen_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_web_listen_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
