@@ -49,19 +49,24 @@ argument_specs:
           - I(Advanced)
           - Directory to install nvidia_dcgm_exporter binary
         default: /usr/local/bin
+      nvidia_dcgm_exporter_create_system_user_group:
+        description:
+          - I(Advanced)
+          - Create system user and group for nVIDIA DCGM exporter
+        default: true
       nvidia_dcgm_exporter_system_group:
         description:
           - I(Advanced)
-          - System group for batch job exporter
+          - System group for nVIDIA DCGM exporter
         default: dcgm-exp
       nvidia_dcgm_exporter_system_user:
         description:
           - I(Advanced)
-          - DCGM exporter user
+          - nVIDIA DCGM exporter user
         default: dcgm-exp
       nvidia_dcgm_exporter_cli_args:
         description:
           - I(Advanced)
-          - Additional CLI arguments that will be passed to DCGM exporter
+          - Additional CLI arguments that will be passed to nVIDIA DCGM exporter
         type: list
         elements: str

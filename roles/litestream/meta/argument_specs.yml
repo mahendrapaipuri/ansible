@@ -34,6 +34,11 @@ argument_specs:
           - I(Advanced)
           - Directory to install litestream binary
         default: /usr/local/bin
+      litestream_create_system_user_group:
+        description:
+          - I(Advanced)
+          - Create system user and group for litestream
+        default: true
       litestream_system_group:
         description:
           - I(Advanced)

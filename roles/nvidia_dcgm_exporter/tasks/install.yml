@@ -4,7 +4,9 @@
     name: "{{ nvidia_dcgm_exporter_system_group }}"
     state: present
     system: true
-  when: nvidia_dcgm_exporter_system_group != "root"
+  when:
+    - nvidia_dcgm_exporter_system_group != "root"
+    - nvidia_dcgm_exporter_create_system_user_group
 
 - name: Create the nvidia_dcgm_exporter user
   ansible.builtin.user:
@@ -15,7 +17,9 @@
     system: true
     create_home: false
     home: /
-  when: nvidia_dcgm_exporter_system_user != "root"
+  when:
+    - nvidia_dcgm_exporter_system_user != "root"
+    - nvidia_dcgm_exporter_create_system_user_group
 
 - name: Get binary
   when:

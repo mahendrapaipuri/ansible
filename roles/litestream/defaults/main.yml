@@ -11,3 +11,4 @@ litestream_env_vars: {}
 litestream_binary_install_dir: /usr/local/bin
 litestream_system_group: root
 litestream_system_user: "{{ litestream_system_group }}"
+litestream_create_system_user_group: true

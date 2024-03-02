@@ -27,3 +27,4 @@ ceems_exporter_env_vars: {}
 ceems_exporter_binary_install_dir: /usr/local/bin
 ceems_exporter_system_group: ceemsexp
 ceems_exporter_system_user: "{{ ceems_exporter_system_group }}"
+ceems_exporter_create_system_user_group: true

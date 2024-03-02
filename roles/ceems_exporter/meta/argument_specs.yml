@@ -90,6 +90,11 @@ argument_specs:
           - I(Advanced)
           - Directory to install ceems_exporter binary
         default: /usr/local/bin
+      ceems_exporter_create_system_user_group:
+        description:
+          - I(Advanced)
+          - Create system user and group for CEEMS exporter
+        default: true
       ceems_exporter_system_group:
         description:
           - I(Advanced)

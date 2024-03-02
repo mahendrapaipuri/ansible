@@ -4,7 +4,9 @@
     name: "{{ ceems_lb_system_group }}"
     state: present
     system: true
-  when: ceems_lb_system_group != "root"
+  when:
+    - ceems_lb_system_group != "root"
+    - ceems_lb_create_system_user_group
 
 - name: Create the ceems_lb user
   ansible.builtin.user:
@@ -15,7 +17,9 @@
     system: true
     create_home: false
     home: /
-  when: ceems_lb_system_user != "root"
+  when:
+    - ceems_lb_system_user != "root"
+    - ceems_lb_create_system_user_group
 
 - name: Get binary
   when:

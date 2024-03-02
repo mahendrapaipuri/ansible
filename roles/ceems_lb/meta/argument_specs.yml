@@ -65,6 +65,11 @@ argument_specs:
           - I(Advanced)
           - Directory to install ceems_lb binary
         default: /usr/local/bin
+      ceems_lb_create_system_user_group:
+        description:
+          - I(Advanced)
+          - Create system user and group for CEEMS load balancer
+        default: true
       ceems_lb_system_group:
         description:
           - I(Advanced)
