@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.2.0:
+    changes:
+      minor_changes:
+        - 'feat: Add litestream role (https://github.com/mahendrapaipuri/ansible/pull/6)'
+    release_date: '2024-03-02'
   0.1.2:
     changes:
       trivial:
