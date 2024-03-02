@@ -1,5 +1,5 @@
 ---
-litestream_version: "0.3.13"
+litestream_version: 0.3.13
 litestream_binary_local_dir: ""
 litestream_binary_url: https://github.com/{{ _litestream_repo }}/releases/download/v{{ litestream_version }}/litestream-v{{ litestream_version }}-linux-{{ go_arch }}.tar.gz
 litestream_skip_install: false
