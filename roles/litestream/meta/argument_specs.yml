@@ -1,0 +1,57 @@
+---
+# yamllint disable rule:line-length
+argument_specs:
+  main:
+    short_description: Litestream replicator
+    description:
+      - Deploy L(Litestream,https://litestream.io) using ansible
+    author:
+      - Mahendra Paipuri
+    options:
+      litestream_version:
+        description: Litestream package version. Also accepts latest as parameter.
+        default: "0.3.13"
+      litestream_skip_install:
+        description: Litestream installation tasks gets skipped when set to true.
+        type: bool
+        default: false
+      litestream_binary_local_dir:
+        description:
+          - Enables the use of local packages instead of those distributed on github.
+          - The parameter may be set to a directory where the C(litestream) binary is stored on the host where ansible is run.
+          - This overrides the I(litestream_version) parameter
+      litestream_binary_url:
+        description: URL of the Litestream binaries .tar.gz file
+        default: https://github.com/{{ _litestream_repo }}/releases/download/v{{ litestream_version }}/litestream-{{ litestream_version }}.linux-{{ go_arch }}.tar.gz
+      litestream_config:
+        description:
+          - Litstream config.
+          - More details on Litestream config in L(docs,https://litestream.io/reference/config/)
+        type: dict
+        required: true
+      litestream_binary_install_dir:
+        description:
+          - I(Advanced)
+          - Directory to install litestream binary
+        default: /usr/local/bin
+      litestream_system_group:
+        description:
+          - I(Advanced)
+          - System group for litestream
+        default: root
+      litestream_system_user:
+        description:
+          - I(Advanced)
+          - Litestream user
+        default: root
+      litestream_cli_args:
+        description:
+          - I(Advanced)
+          - Additional CLI arguments that will be passed to Litestream
+        type: list
+        elements: str
+      litestream_env_vars:
+        description:
+          - I(Advanced)
+          - Environment variables will be passed to Litestream
+        type: dict

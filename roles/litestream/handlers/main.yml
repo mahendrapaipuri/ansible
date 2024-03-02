@@ -1,0 +1,10 @@
+---
+- name: Restart litestream
+  listen: restart litestream
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: litestream
+    state: restarted
+  when:
+    - not ansible_check_mode

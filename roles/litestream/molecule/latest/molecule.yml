@@ -1,0 +1,11 @@
+---
+provisioner:
+  inventory:
+    group_vars:
+      all:
+        litestream_version: latest
+        litestream_config:
+          dbs:
+            - path: /var/lib/db/sample.db
+              replicas:
+                - path: /var/lib/backup

@@ -1,0 +1,67 @@
+---
+- name: Create the litestream group
+  ansible.builtin.group:
+    name: "{{ litestream_system_group }}"
+    state: present
+    system: true
+  when: litestream_system_group != "root"
+
+- name: Create the litestream user
+  ansible.builtin.user:
+    name: "{{ litestream_system_user }}"
+    groups: "{{ litestream_system_group }}"
+    append: true
+    shell: /usr/sbin/nologin
+    system: true
+    create_home: false
+    home: /
+  when: litestream_system_user != "root"
+
+- name: Get binary
+  when:
+    - litestream_binary_local_dir | length == 0
+    - not litestream_skip_install
+  block:
+    - name: Download litestream binary to local folder
+      become: false
+      ansible.builtin.get_url:
+        url: "{{ litestream_binary_url }}"
+        dest: /tmp/litestream-v{{ litestream_version }}-linux-{{ go_arch }}.tar.gz
+        mode: "0644"
+      register: _download_binary
+      until: _download_binary is succeeded
+      retries: 5
+      delay: 2
+      delegate_to: localhost
+      check_mode: false
+
+    - name: Unpack litestream binary
+      become: false
+      ansible.builtin.unarchive:
+        src: /tmp/litestream-v{{ litestream_version }}-linux-{{ go_arch }}.tar.gz
+        dest: /tmp
+        creates: /tmp/litestream-v{{ litestream_version }}-linux-{{ go_arch }}/litestream
+      delegate_to: localhost
+      check_mode: false
+
+    - name: Propagate litestream binaries
+      ansible.builtin.copy:
+        src: /tmp/litestream
+        dest: "{{ litestream_binary_install_dir }}/litestream"
+        mode: "0755"
+        owner: root
+        group: root
+      notify: restart litestream
+      when: not ansible_check_mode
+
+- name: Propagate locally distributed litestream binary
+  ansible.builtin.copy:
+    src: "{{ litestream_binary_local_dir }}/litestream"
+    dest: "{{ litestream_binary_install_dir }}/litestream"
+    mode: "0755"
+    owner: root
+    group: root
+  when:
+    - litestream_binary_local_dir | length > 0
+    - not litestream_skip_install
+  notify: restart litestream
