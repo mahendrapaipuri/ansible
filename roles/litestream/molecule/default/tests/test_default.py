@@ -61,4 +61,3 @@ def test_protecthome_property(host):
     s = host.service("litestream")
     p = s.systemd_properties
     assert p.get("ProtectHome") == "yes"
-
