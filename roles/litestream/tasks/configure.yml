@@ -26,13 +26,13 @@
       {% endfor %}
       {{ ns.db_backup_paths | from_yaml | unique }}
 
-- name: Create litestream DB backup directories
+- name: Create DB backup directories
   ansible.builtin.file:
     path: "{{ item }}"
-    state: directory
     owner: "{{ litestream_system_user }}"
     group: "{{ litestream_system_group }}"
     mode: u+rwX,g+rwX,o-rwX
+    state: directory
   when: litestream_system_user != "root"
   loop: "{{ _db_backup_paths }}"
   loop_control:
