@@ -82,12 +82,17 @@ argument_specs:
       ceems_api_server_binary_install_dir:
         description:
           - I(Advanced)
-          - Directory to install ceems_api_server binary
+          - Directory to install CEEMS API server binary
         default: /usr/local/bin
+      ceems_api_server_create_system_user_group:
+        description:
+          - I(Advanced)
+          - Create system user and group for CEEMS API server
+        default: true
       ceems_api_server_system_group:
         description:
           - I(Advanced)
-          - System group for batch job stats server
+          - System group for CEEMS API server server
         default: ceems
       ceems_api_server_system_user:
         description:

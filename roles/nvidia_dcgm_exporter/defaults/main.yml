@@ -17,3 +17,4 @@ nvidia_dcgm_exporter_cli_args: []
 nvidia_dcgm_exporter_binary_install_dir: /usr/local/bin
 nvidia_dcgm_exporter_system_group: dcgmexp
 nvidia_dcgm_exporter_system_user: "{{ nvidia_dcgm_exporter_system_group }}"
+nvidia_dcgm_exporter_create_system_user_group: true

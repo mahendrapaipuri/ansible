@@ -24,3 +24,4 @@ ceems_api_server_env_vars: {}
 ceems_api_server_binary_install_dir: /usr/local/bin
 ceems_api_server_system_group: ceems
 ceems_api_server_system_user: "{{ ceems_api_server_system_group }}"
+ceems_api_server_create_system_user_group: true

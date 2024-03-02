@@ -19,3 +19,4 @@ ceems_lb_env_vars: {}
 ceems_lb_binary_install_dir: /usr/local/bin
 ceems_lb_system_group: ceems
 ceems_lb_system_user: "{{ ceems_lb_system_group }}"
+ceems_lb_create_system_user_group: true
