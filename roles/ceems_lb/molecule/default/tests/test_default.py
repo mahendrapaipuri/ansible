@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/var/lib/ceems_lb",
+    "/etc/ceems_lb",
 ])
 def test_directories(host, dir):
     d = host.file(dir)
@@ -44,10 +44,10 @@ def test_permissions_didnt_change(host, file):
 
 
 def test_user(host):
-    assert host.group("ceemslb").exists
-    assert "ceemslb" in host.user("ceemslb").groups
-    assert host.user("ceemslb").shell == "/usr/sbin/nologin"
-    assert host.user("ceemslb").home == "/"
+    assert host.group("ceems").exists
+    assert "ceems" in host.user("ceems").groups
+    assert host.user("ceems").shell == "/usr/sbin/nologin"
+    assert host.user("ceems").home == "/"
 
 
 def test_service(host):

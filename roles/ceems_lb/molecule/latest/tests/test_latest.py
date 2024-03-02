@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/var/lib/ceems_lb",
+    "/etc/ceems_lb",
 ])
 def test_directories(host, dir):
     d = host.file(dir)
@@ -29,14 +29,14 @@ def test_files(host, file):
     assert f.is_file
 
 
-@pytest.mark.parametrize("dir", [
+@pytest.mark.parametrize("file", [
     "/etc",
     "/root",
     "/usr",
     "/var"
 ])
-def test_permissions_didnt_change(host, dir):
-    f = host.file(dir)
+def test_permissions_didnt_change(host, file):
+    f = host.file(file)
     assert f.exists
     assert f.is_directory
     assert f.user == "root"
@@ -44,10 +44,10 @@ def test_permissions_didnt_change(host, dir):
 
 
 def test_user(host):
-    assert host.group("ceemslb").exists
-    assert "ceemslb" in host.user("ceemslb").groups
-    assert host.user("ceemslb").shell == "/usr/sbin/nologin"
-    assert host.user("ceemslb").home == "/"
+    assert host.group("ceems").exists
+    assert "ceems" in host.user("ceems").groups
+    assert host.user("ceems").shell == "/usr/sbin/nologin"
+    assert host.user("ceems").home == "/"
 
 
 def test_service(host):
@@ -70,7 +70,7 @@ def test_protecthome_property(host):
 
 
 @pytest.mark.parametrize("socket", [
-    "tcp://127.0.0.1:9030",
+    "tcp://127.0.0.1:9030"
 ])
 def test_socket(host, socket):
     s = host.socket(socket)

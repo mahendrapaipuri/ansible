@@ -27,9 +27,9 @@
   hosts: all
   any_errors_fatal: true
   tasks:
-    - name: Create ceems_api_server cert dir
+    - name: Create ceems_lb cert dir
       ansible.builtin.file:
-        path: "{{ ceems_api_server_tls_server_config.cert_file | dirname }}"
+        path: "{{ ceems_lb_tls_server_config.cert_file | dirname }}"
         state: directory
         owner: root
         group: root
@@ -42,6 +42,6 @@
         mode: "{{ item.mode | default('0644') }}"
       loop:
         - src: /tmp/tls.cert
-          dest: "{{ ceems_api_server_tls_server_config.cert_file }}"
+          dest: "{{ ceems_lb_tls_server_config.cert_file }}"
         - src: /tmp/tls.key
-          dest: "{{ ceems_api_server_tls_server_config.key_file }}"
+          dest: "{{ ceems_lb_tls_server_config.key_file }}"

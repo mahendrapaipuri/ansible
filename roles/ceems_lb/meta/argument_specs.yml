@@ -35,6 +35,7 @@ argument_specs:
           - Each element is a dict with url and skip_tls_verify keys.
         type: list
         elements: dict
+        required: true
       ceems_lb_strategy:
         description:
           - Load Balancer strategy.
@@ -67,7 +68,7 @@ argument_specs:
       ceems_lb_system_group:
         description:
           - I(Advanced)
-          - System group for batch job stats server
+          - System group for CEEMS load balancer
         default: ceemslb
       ceems_lb_system_user:
         description:

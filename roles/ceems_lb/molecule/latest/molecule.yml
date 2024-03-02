@@ -3,4 +3,7 @@ provisioner:
   inventory:
     group_vars:
       all:
-        ceems_api_server_version: latest
+        ceems_lb_version: latest
+        ceems_lb_backends:
+          - url: http://localhost:9090
+            skip_tls_verify: true
