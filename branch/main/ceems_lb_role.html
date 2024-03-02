@@ -124,7 +124,7 @@
 <h1>mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer<a class="headerlink" href="#mahendrapaipuri-ansible-ceems-lb-role-ceems-load-balancer" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.1.2).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.2.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">mahendrapaipuri.ansible</span></code>.</p>
@@ -160,7 +160,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_backends"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-backends"><strong>ceems_lb_backends</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_backends" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_backends" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>List of TSDB backends.</p>
 <p>Each element is a dict with url and skip_tls_verify keys.</p>
@@ -269,7 +269,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
-<p>System group for batch job stats server</p>
+<p>System group for CEEMS load balancer</p>
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;ceemslb&quot;</span></code></p>
 </div></td>
 </tr>
