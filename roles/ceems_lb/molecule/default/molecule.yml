@@ -3,4 +3,7 @@ provisioner:
   inventory:
     group_vars:
       all:
-        ceems_api_server_web_listen_address: 127.0.0.1:9020
+        ceems_lb_web_listen_address: 127.0.0.1:9030
+        ceems_lb_backends:
+          - url: http://localhost:9090
+            skip_tls_verify: true
