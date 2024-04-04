@@ -46,7 +46,7 @@
       #
       ---
 
-      {{ item.value | to_nice_yaml }}
+      {{ item.value | to_nice_yaml(indent=2, default_style='|') }}
   when: ceems_api_server_extra_configs | length > 0
   loop: "{{ ceems_api_server_extra_configs | dict2items }}"
   notify: restart ceems_api_server
