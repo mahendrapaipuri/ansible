@@ -23,6 +23,7 @@ ceems_api_server_data_backup_interval: ""
 ceems_api_server_admin_users: []
 ceems_api_server_cli_args: []
 ceems_api_server_env_vars: {}
+ceems_api_server_extra_configs: {}
 ceems_api_server_binary_install_dir: /usr/local/bin
 ceems_api_server_system_group: ceems
 ceems_api_server_system_user: "{{ ceems_api_server_system_group }}"
