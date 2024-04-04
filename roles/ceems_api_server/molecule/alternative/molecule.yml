@@ -21,7 +21,7 @@ provisioner:
           - --web.max.query.period=30d
         ceems_api_server_env_vars:
           foo: bar
-        ceems_api_server_extra_config_files:
+        ceems_api_server_extra_configs:
           tsdb_config:
             web_url: http://localhost:9090
             queries: {}

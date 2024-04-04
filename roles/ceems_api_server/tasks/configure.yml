@@ -47,8 +47,8 @@
       ---
 
       {{ item.value | to_nice_yaml }}
-  when: ceems_api_server_extra_config_files | length > 0
-  loop: "{{ ceems_api_server_extra_config_files | dict2items }}"
+  when: ceems_api_server_extra_configs | length > 0
+  loop: "{{ ceems_api_server_extra_configs | dict2items }}"
   notify: restart ceems_api_server
 
 - name: Make the ceems_api_server data directory
