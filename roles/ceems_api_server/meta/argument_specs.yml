@@ -110,3 +110,8 @@ argument_specs:
           - I(Advanced)
           - Environment variables will be passed to CEEMS API server
         type: dict
+      ceems_api_server_extra_config:
+        description:
+          - I(Advanced)
+          - Extra configuration files for CEEMS API server. These files will be created in CEEMS API server config dir with the same name as key of the argument dict.
+        type: dict
