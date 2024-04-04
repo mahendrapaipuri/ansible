@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.3.0:
+    changes:
+      minor_changes:
+        - 'enhancement: Extra configs variable from CEEMS API server (https://github.com/mahendrapaipuri/ansible/pull/11)'
+    release_date: '2024-04-04'
   0.2.3:
     changes:
       bugfixes:

@@ -4,6 +4,14 @@ mahendrapaipuri.Ansible Release Notes
 
 .. contents:: Topics
 
+v0.3.0
+======
+
+Minor Changes
+-------------
+
+- enhancement: Extra configs variable from CEEMS API server (https://github.com/mahendrapaipuri/ansible/pull/11)
+
 v0.2.3
 ======
 
