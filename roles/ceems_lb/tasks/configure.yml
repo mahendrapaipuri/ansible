@@ -26,12 +26,13 @@
   notify: restart ceems_lb
 
 - name: Copy the ceems_lb config file
-  ansible.builtin.template:
-    src: config.yaml.j2
+  ansible.builtin.copy:
     dest: /etc/ceems_lb/config.yaml
     owner: "{{ ceems_lb_system_user }}"
     group: "{{ ceems_lb_system_group }}"
     mode: "0640"
+    content: |
+      {{ ceems_lb_config | to_nice_yaml(indent=2) }}
   notify: restart ceems_lb
 
 - name: Allow ceems_lb port in SELinux on RedHat OS family
