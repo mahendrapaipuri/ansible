@@ -159,21 +159,13 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </thead>
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_backends"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-backends"><strong>ceems_lb_backends</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_backends" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span> / <span class="ansible-option-required">required</span></p>
-</div></td>
-<td><div class="ansible-option-cell"><p>List of TSDB backends.</p>
-<p>Each element is a dict with url and skip_tls_verify keys.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-basic-auth-users"><strong>ceems_lb_basic_auth_users</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_basic_auth_users" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_install_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-install-dir"><strong>ceems_lb_binary_install_dir</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_install_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -182,7 +174,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;/usr/local/bin&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_local_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-local-dir"><strong>ceems_lb_binary_local_dir</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_local_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -191,7 +183,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>This overrides the <em>ceems_lb_version</em> parameter</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-url"><strong>ceems_lb_binary_url</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -199,7 +191,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;https://github.com/{{</span> <span class="pre">_ceems_lb_repo</span> <span class="pre">}}/releases/download/v{{</span> <span class="pre">ceems_lb_version</span> <span class="pre">}}/ceems-{{</span> <span class="pre">ceems_lb_version</span> <span class="pre">}}.linux-{{</span> <span class="pre">go_arch</span> <span class="pre">}}.tar.gz&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_checksums_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-checksums-url"><strong>ceems_lb_checksums_url</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_checksums_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -207,12 +199,20 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;https://github.com/{{</span> <span class="pre">_ceems_lb_repo</span> <span class="pre">}}/releases/download/v{{</span> <span class="pre">ceems_lb_version</span> <span class="pre">}}/sha256sums.txt&quot;</span></code></p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_cli_args"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-cli-args"><strong>ceems_lb_cli_args</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_cli_args" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
 <p>Additional CLI arguments that will be passed to CEEMS Load Balancer</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-config"><strong>ceems_lb_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Configuration of CEEMS LB.</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://github.com/mahendrapaipuri/ceems/blob/main/build/package/ceems_lb/config.yml">ceems_lb docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
@@ -225,14 +225,6 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_db_path"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-db-path"><strong>ceems_lb_db_path</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_db_path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-cell"><p>Path to CEEMS API server DB</p>
-<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_env_vars"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-env-vars"><strong>ceems_lb_env_vars</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_env_vars" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -240,7 +232,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Environment variables will be passed to CEEMS Load Balancer</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-http-server-config"><strong>ceems_lb_http_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_http_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -248,7 +240,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">ceems_lb docs</a>.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-skip-install"><strong>ceems_lb_skip_install</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -257,19 +249,6 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <ul class="simple">
 <li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">false</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
-</ul>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_strategy"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-strategy"><strong>ceems_lb_strategy</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--ceems_lb_strategy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-cell"><p>Load Balancer strategy.</p>
-<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
-<ul class="simple">
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;round-robin&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;least-connection&quot;</span></code></p></li>
-<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;resource-based&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
 </ul>
 </div></td>
 </tr>
@@ -296,7 +275,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_tls_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration for TLS authentication.</p>
-<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">ceems_lb docs</a>.</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/https/">docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
