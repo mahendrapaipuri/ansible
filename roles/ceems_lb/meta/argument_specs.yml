@@ -29,28 +29,16 @@ argument_specs:
       ceems_lb_web_listen_address:
         description: Address on which CEEMS Load Balancer will listen
         default: "0.0.0.0:9020"
-      ceems_lb_backends:
+      ceems_lb_config:
         description:
-          - List of TSDB backends.
-          - Each element is a dict with url and skip_tls_verify keys.
-        type: list
-        elements: dict
+          - Configuration of CEEMS LB.
+          - Keys and values are the same as in L(ceems_lb docs,https://github.com/mahendrapaipuri/ceems/blob/main/build/package/ceems_lb/config.yml).
+        type: dict
         required: true
-      ceems_lb_strategy:
-        description:
-          - Load Balancer strategy.
-        default: resource-based
-        choices:
-          - round-robin
-          - least-connection
-          - resource-based
-      ceems_lb_db_path:
-        description: Path to CEEMS API server DB
-        default: ""
       ceems_lb_tls_server_config:
         description:
           - Configuration for TLS authentication.
-          - Keys and values are the same as in L(ceems_lb docs,https://prometheus.io/docs/prometheus/latest/configuration/https/).
+          - Keys and values are the same as in L(docs,https://prometheus.io/docs/prometheus/latest/configuration/https/).
         type: dict
       ceems_lb_http_server_config:
         description:

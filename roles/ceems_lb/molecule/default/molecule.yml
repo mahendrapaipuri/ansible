@@ -4,6 +4,7 @@ provisioner:
     group_vars:
       all:
         ceems_lb_web_listen_address: 127.0.0.1:9030
-        ceems_lb_backends:
-          - url: http://localhost:9090
-            skip_tls_verify: true
+        ceems_lb_config:
+          strategy: resource-based
+          backends:
+            - url: http://localhost:9090
