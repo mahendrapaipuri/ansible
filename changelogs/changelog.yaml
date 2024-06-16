@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.3.2:
+    changes:
+      trivial:
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
+    release_date: '2024-06-16'
   0.3.1:
     changes:
       trivial:

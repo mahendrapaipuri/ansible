@@ -4,6 +4,9 @@ mahendrapaipuri.Ansible Release Notes
 
 .. contents:: Topics
 
+v0.3.2
+======
+
 v0.3.1
 ======
 
