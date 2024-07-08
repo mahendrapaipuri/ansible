@@ -64,9 +64,6 @@ argument_specs:
           - Directory where files containing mapping of SLURM job ID to GPU ordinals are created by Epilog scripts.
           - Check the L(example scripts,https://github.com/mahendrapaipuri/ceems_monitoring/tree/main/etc/slurm/epilog.d).
         default: ""
-      ceems_exporter_emissions_country_code:
-        description: ISO 3166-1 alpha-3 Country code to export emission data.
-        default: FR
       ceems_exporter_ipmi_dcmi_cmd:
         description:
           - Full command to get power statistics from IPMI. Use absolute path to IPMI command.
