@@ -5,7 +5,7 @@
   any_errors_fatal: true
   tasks:
     - name: Install RedHat sqlite package
-      ansible.builtin.yum:
+      ansible.builtin.dnf:
         name: sqlite
         state: present
       when: ansible_os_family == 'RedHat'
