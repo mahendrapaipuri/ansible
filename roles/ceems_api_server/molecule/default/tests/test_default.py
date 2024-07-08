@@ -10,7 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/var/lib/ceems_api_server"
+    "/var/lib/ceems"
 ])
 def test_directories(host, dir):
     d = host.file(dir)

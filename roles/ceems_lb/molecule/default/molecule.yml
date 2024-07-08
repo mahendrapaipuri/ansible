@@ -5,6 +5,8 @@ provisioner:
       all:
         ceems_lb_web_listen_address: 127.0.0.1:9030
         ceems_lb_config:
-          strategy: resource-based
+          strategy: round-robin
           backends:
-            - url: http://localhost:9090
+            - id: default
+              tsdb_urls:
+                - http://localhost:9090

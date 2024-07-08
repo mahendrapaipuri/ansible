@@ -2,6 +2,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 import os
+import yaml
 import testinfra.utils.ansible_runner
 import pytest
 
@@ -10,8 +11,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("dir", [
-    "/var/lib/ceems_api_server",
-    "/tmp/ceems_api_server"
+    "/var/lib/ceems",
+    "/tmp/ceems"
 ])
 def test_directories(host, dir):
     d = host.file(dir)
@@ -23,12 +24,18 @@ def test_directories(host, dir):
     "/etc/systemd/system/ceems_api_server.service",
     "/usr/local/bin/ceems_api_server",
     "/etc/ceems_api_server/config.yaml",
-    "/etc/ceems_api_server/tsdb_config.yaml",
 ])
 def test_files(host, file):
     f = host.file(file)
     assert f.exists
     assert f.is_file
+
+    if file == "/etc/ceems_api_server/config.yaml":
+        config_bytes = host.file(file).content
+        config = yaml.safe_load(config_bytes.decode('utf-8'))
+        assert len(config["clusters"]) == 1
+        assert len(config["updaters"]) == 1
+        assert config["ceems_api_server"]["data"]["backup_path"] == "/tmp/ceems"
 
 
 @pytest.mark.parametrize("dir", [

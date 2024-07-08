@@ -29,43 +29,24 @@ argument_specs:
       ceems_api_server_web_listen_address:
         description: Address on which ceems API server will listen
         default: "0.0.0.0:9020"
-      ceems_api_server_resource_manager:
+      ceems_api_server_config:
         description:
-          - Name of the backend resource manager.
-          - Currently only SLURM is supported.
-        default: slurm
-        choices:
-          - slurm
-      ceems_api_server_data_retention_period:
-        description:
-          - Compute unit data will be retained for this period in the DB.
-          - "Units Supported: y, w, d, h, m, s, ms"
-        default: 1y
-      ceems_api_server_data_path:
-        description:
-          - Directory where data files of ceems API server are created.
+          - CEEMS API server config. Configuration under key L(`ceems_api_server` docs,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server)
           - These files include the SQLite database.
-        default: /var/lib/ceems
-      ceems_api_server_data_update_interval:
+        type: dict
+        required: true
+      ceems_api_server_clusters_config:
         description:
-          - DB will be updated from backend batch scheduler at this interval.
-          - This must be not too small nor too large. Use based on your platform job churn.
-          - "Units Supported: y, w, d, h, m, s, ms"
-        default: 15m
-      ceems_api_server_data_backup_path:
-        description:
-          - Directory where DB back ups are stored.
-          - To achieve fault tolerance this directory should be on a different physical disk than actual DB or on a network file system.
-        default: ""
-      ceems_api_server_data_backup_interval:
-        description:
-          - A DB backup will be created at this interval.
-          - "Units Supported: y, w, d, h, m, s, ms"
-        default: ""
-      ceems_api_server_admin_users:
-        description: List of admin users for ceems API server.
+          - List of clusters that are monitored by CEEMS.
+          - Each element in list be of L(`cluster_config`,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#cluster_config)
         type: list
-        elements: str
+        elements: dict
+      ceems_api_server_updaters_config:
+        description:
+          - List of updaters used by CEEMS.
+          - Each element in list be of L(`updater_config`,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#updater_config)
+        type: list
+        elements: dict
       ceems_api_server_tls_server_config:
         description:
           - Configuration for TLS authentication.
