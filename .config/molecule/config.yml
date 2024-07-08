@@ -4,31 +4,34 @@ dependency:
 prerun: false
 driver:
   name: docker
+# Almalinux 8, Centos 7 and 8 ships Python 3.6 which is not supported anymore
+# from Ansible >= 2.17
+# So we are removing them from test matrix
 platforms:
-  - name: almalinux-8
-    image: dokken/almalinux-8
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /lib/systemd/systemd
+  # - name: almalinux-8
+  #   image: dokken/almalinux-8
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /lib/systemd/systemd
   - name: almalinux-9
     image: dokken/almalinux-9
     pre_build_image: true
     privileged: true
     cgroup_parent: docker.slice
     command: /lib/systemd/systemd
-  - name: centos-7
-    image: dokken/centos-7
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /usr/lib/systemd/systemd
-  - name: centos-stream-8
-    image: dokken/centos-stream-8
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /lib/systemd/systemd
+  # - name: centos-7
+  #   image: dokken/centos-7
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /usr/lib/systemd/systemd
+  # - name: centos-stream-8
+  #   image: dokken/centos-stream-8
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /lib/systemd/systemd
   - name: centos-stream-9
     image: dokken/centos-stream-9
     pre_build_image: true
