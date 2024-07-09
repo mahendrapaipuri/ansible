@@ -1,6 +1,13 @@
 ---
 ancestor:
 releases:
+  0.4.0:
+    changes:
+      minor_changes:
+        - 'minor: Upgrade ceems roles (https://github.com/mahendrapaipuri/ansible/pull/16)'
+      trivial:
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
+    release_date: '2024-07-09'
   0.3.2:
     changes:
       trivial:

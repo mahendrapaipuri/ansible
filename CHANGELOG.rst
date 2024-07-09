@@ -4,6 +4,14 @@ mahendrapaipuri.Ansible Release Notes
 
 .. contents:: Topics
 
+v0.4.0
+======
+
+Minor Changes
+-------------
+
+- minor: Upgrade ceems roles (https://github.com/mahendrapaipuri/ansible/pull/16)
+
 v0.3.2
 ======
 
