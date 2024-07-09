@@ -27,6 +27,29 @@ provisioner:
         ceems_api_server_updaters_config:
           - id: tsdb-0
             updater: tsdb
+            extra_config:
+              cutoff_duration: 5m
+              queries:
+                # Avgerage CPU utilisation
+                avg_cpu_usage:
+                  global: |
+                    {% raw %}
+                    avg_over_time(
+                      avg by (uuid) (
+                        (
+                          rate(ceems_compute_unit_cpu_user_seconds_total{uuid=~"{{.UUIDs}}"}[{{.RateInterval}}])
+                          +
+                          rate(ceems_compute_unit_cpu_system_seconds_total{uuid=~"{{.UUIDs}}"}[{{.RateInterval}}])
+                        )
+                        /
+                        (
+                            ceems_compute_unit_cpus{uuid=~"{{.UUIDs}}"}
+                          / on (instance) group_left ()
+                            ceems_cpu_per_core_count
+                        )
+                      )[{{.Range}}:]
+                    ) * 100
+                    {% endraw %}
         ceems_api_server_cli_args:
           - --log.level=debug
         ceems_api_server_env_vars:

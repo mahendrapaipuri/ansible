@@ -2,15 +2,15 @@
 {{ ansible_managed | comment }}
 {% if ceems_lb_config | length > 0 %}
 ceems_lb:
-{{ ceems_lb_config | to_nice_yaml | indent(2, true) }}
+{{ ceems_lb_config | to_nice_yaml(sort_keys=False) | indent(2, true) }}
 {% endif %}
 
 {% if ceems_api_server_config | length > 0 %}
 ceems_api_server:
-{{ ceems_api_server_config | to_nice_yaml | indent(2, true) }}
+{{ ceems_api_server_config | to_nice_yaml(sort_keys=False) | indent(2, true) }}
 {% endif %}
 
 {% if ceems_api_server_clusters_config | length > 0 %}
 clusters:
-{{ ceems_api_server_clusters_config }}
+{{ ceems_api_server_clusters_config | to_nice_yaml(sort_keys=False) | indent(2, true) }}
 {% endif %}
