@@ -1,6 +1,11 @@
 ---
 ancestor:
 releases:
+  0.4.1:
+    changes:
+      trivial:
+        - 'patch: Format the config files properly (https://github.com/mahendrapaipuri/ansible/pull/19)'
+    release_date: '2024-07-09'
   0.4.0:
     changes:
       minor_changes:
