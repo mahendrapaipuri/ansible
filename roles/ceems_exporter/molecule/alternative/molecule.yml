@@ -19,6 +19,6 @@ provisioner:
           - emissions
         ceems_exporter_disabled_collectors:
           - slurm
-        ceems_exporter_ipmi_dcmi_cmd: "sudo ipmi-dcmi"
+        ceems_exporter_ipmi_dcmi_cmd: sudo ipmi-dcmi
         ceems_exporter_env_vars:
           EMAPS_API_TOKEN: foo

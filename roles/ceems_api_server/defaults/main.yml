@@ -1,5 +1,5 @@
 ---
-ceems_api_server_version: 0.1.0-rc.5
+ceems_api_server_version: "0.1.0"
 ceems_api_server_binary_local_dir: ""
 ceems_api_server_binary_url: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/\
                               v{{ ceems_api_server_version }}/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz"
@@ -12,18 +12,14 @@ ceems_api_server_web_listen_address: "0.0.0.0:9020"
 ceems_api_server_tls_server_config: {}
 ceems_api_server_http_server_config: {}
 ceems_api_server_basic_auth_users: {}
-ceems_api_server_resource_manager: slurm
+ceems_api_server_config:
+  data:
+    path: /var/lib/ceems
 
-ceems_api_server_data_path: /var/lib/ceems_api_server
-ceems_api_server_data_retention_period: 1y
-ceems_api_server_data_update_interval: 15m
-ceems_api_server_data_backup_path: ""
-ceems_api_server_data_backup_interval: ""
-
-ceems_api_server_admin_users: []
+ceems_api_server_clusters_config: []
+ceems_api_server_updaters_config: []
 ceems_api_server_cli_args: []
 ceems_api_server_env_vars: {}
-ceems_api_server_extra_configs: {}
 ceems_api_server_binary_install_dir: /usr/local/bin
 ceems_api_server_system_group: ceems
 ceems_api_server_system_user: "{{ ceems_api_server_system_group }}"

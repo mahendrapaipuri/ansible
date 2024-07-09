@@ -30,6 +30,15 @@
           list |
           length == 0
 
+- name: Assert that config is set
+  ansible.builtin.fail:
+    msg: ceems_api_server_config is invalid
+  when: item is not defined
+  loop:
+    - ceems_api_server_config
+    - ceems_api_server_config.data
+    - ceems_api_server_config.data.path
+
 - name: Assert that TLS config is correct
   when: ceems_api_server_tls_server_config | length > 0
   block:
@@ -74,9 +83,8 @@
 
 - name: Discover latest version
   ansible.builtin.set_fact:
-    ceems_api_server_version: "{{ (lookup('url', 'https://api.github.com/repos/{{ _ceems_api_server_repo }}/releases/latest',
-      headers=_github_api_headers, split_lines=False) | from_json).get('tag_name')
-      | replace('v', '') }}"
+    ceems_api_server_version: "{{ (lookup('url', 'https://api.github.com/repos/{{ _ceems_api_server_repo }}/releases/latest', headers=_github_api_headers, split_lines=False)
+      | from_json).get('tag_name') | replace('v', '') }}"
   run_once: true
   until: ceems_api_server_version is version('0.0.0', '>=')
   retries: 10
@@ -84,6 +92,12 @@
     - ceems_api_server_version == "latest"
     - ceems_api_server_binary_local_dir | length == 0
     - not ceems_api_server_skip_install
+
+- name: Discover data path and backup path
+  ansible.builtin.set_fact:
+    _ceems_api_server_data_path: "{{ ceems_api_server_config['data']['path'] }}"
+    _ceems_api_server_data_backup_path: "{{ ceems_api_server_config['data']['backup_path'] if 'backup_path' in ceems_api_server_config['data'].keys() else '' }}"
+  run_once: true
 
 - name: Get ceems_api_server binary checksum
   when:

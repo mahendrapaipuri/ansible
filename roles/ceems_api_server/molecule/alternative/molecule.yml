@@ -13,15 +13,21 @@ provisioner:
         ceems_api_server_basic_auth_users:
           randomuser: examplepassword
         go_arch: amd64
-        ceems_api_server_data_backup_path: /tmp/ceems_api_server
-        ceems_api_server_admin_users:
-          - adm1
-          - adm2
+        ceems_api_server_config:
+          data:
+            path: /var/lib/ceems
+            backup_path: /tmp/ceems
+          admin:
+            users:
+              - adm1
+              - adm2
+        ceems_api_server_clusters_config:
+          - id: slurm-0
+            manager: slurm
+        ceems_api_server_updaters_config:
+          - id: tsdb-0
+            updater: tsdb
         ceems_api_server_cli_args:
-          - --web.max.query.period=30d
+          - --log.level=debug
         ceems_api_server_env_vars:
           foo: bar
-        ceems_api_server_extra_configs:
-          tsdb_config:
-            web_url: http://localhost:9090
-            queries: {}

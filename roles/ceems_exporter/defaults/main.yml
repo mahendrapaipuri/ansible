@@ -1,5 +1,5 @@
 ---
-ceems_exporter_version: 0.1.0-rc.5
+ceems_exporter_version: "0.1.0"
 ceems_exporter_binary_local_dir: ""
 ceems_exporter_binary_url: "https://github.com/{{ _ceems_exporter_repo }}/releases/download/v{{ ceems_exporter_version }}/\
                             ceems-{{ ceems_exporter_version }}.linux-{{ go_arch }}.tar.gz"
@@ -18,7 +18,6 @@ ceems_exporter_create_unique_jobids: false
 ceems_exporter_slurm_job_props_dir: ""
 ceems_exporter_gpu_type: ""
 ceems_exporter_gpu_job_map_dir: ""
-ceems_exporter_emissions_country_code: FR
 
 ceems_exporter_ipmi_dcmi_cmd: sudo /usr/sbin/ipmi-dcmi --get-system-power-statistics
 

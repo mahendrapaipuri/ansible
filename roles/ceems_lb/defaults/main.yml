@@ -1,5 +1,5 @@
 ---
-ceems_lb_version: "0.1.0-rc.6"
+ceems_lb_version: "0.1.0"
 ceems_lb_binary_local_dir: ""
 ceems_lb_binary_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz
 ceems_lb_checksums_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt
@@ -11,8 +11,13 @@ ceems_lb_tls_server_config: {}
 ceems_lb_http_server_config: {}
 ceems_lb_basic_auth_users: {}
 ceems_lb_config:
-  strategy: resource-based
-
+  strategy: round-robin
+  backends:
+    - id: default
+      tsdb_urls:
+        - http://localhost:9090
+ceems_api_server_config: {}
+ceems_api_server_clusters_config: []
 ceems_lb_cli_args: []
 ceems_lb_env_vars: {}
 ceems_lb_binary_install_dir: /usr/local/bin
