@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.11.0" name="antsibull-docs" />
+<meta content="2.12.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer &mdash; mahendrapaipuri.Ansible Collection  documentation</title>
@@ -159,6 +159,22 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </thead>
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_clusters_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-api-server-clusters-config"><strong>ceems_api_server_clusters_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_clusters_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Configuration of CEEMS API server clusters. This is optional</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#cluster_config">clusters docs</a>.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-api-server-config"><strong>ceems_api_server_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Client configuration of CEEMS API server.</p>
+<p>Configuration under key `ceems_api_server` in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-basic-auth-users"><strong>ceems_lb_basic_auth_users</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_basic_auth_users" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -212,7 +228,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration of CEEMS LB.</p>
-<p>Keys and values are the same as in <a class="reference external" href="https://github.com/mahendrapaipuri/ceems/blob/main/build/package/ceems_lb/config.yml">ceems_lb docs</a>.</p>
+<p>Configuration under key `ceems_lb` in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
