@@ -1,64 +1,71 @@
-ancestor: null
+---
+ancestor:
 releases:
-  0.1.0:
-    release_date: '2024-02-26'
-  0.1.1:
-    changes:
-      bugfixes:
-      - 'bugfix: Minor fixes (https://github.com/mahendrapaipuri/ansible/pull/4)'
-    release_date: '2024-02-29'
-  0.1.2:
+  0.4.2:
     changes:
       trivial:
-      - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.5-3.4.0! (https://github.com/mahendrapaipuri/ansible/pull/5)'
-    release_date: '2024-02-29'
-  0.2.0:
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.2.1! (https://github.com/mahendrapaipuri/ansible/pull/29)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.2.1! (https://github.com/mahendrapaipuri/ansible/pull/28)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.2.1! (https://github.com/mahendrapaipuri/ansible/pull/27)'
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.7-3.5.0! (https://github.com/mahendrapaipuri/ansible/pull/23)'
+    release_date: '2024-08-27'
+  0.4.1:
+    changes:
+      trivial:
+        - 'patch: Format the config files properly (https://github.com/mahendrapaipuri/ansible/pull/19)'
+    release_date: '2024-07-09'
+  0.4.0:
     changes:
       minor_changes:
-      - 'feat: Add litestream role (https://github.com/mahendrapaipuri/ansible/pull/6)'
-    release_date: '2024-03-02'
-  0.2.1:
+        - 'minor: Upgrade ceems roles (https://github.com/mahendrapaipuri/ansible/pull/16)'
+      trivial:
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
+    release_date: '2024-07-09'
+  0.3.2:
     changes:
       trivial:
-      - 'patch: Add ceems_lb molecule tests (https://github.com/mahendrapaipuri/ansible/pull/7)'
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
+    release_date: '2024-06-16'
+  0.3.1:
+    changes:
+      trivial:
+        - 'patch: Update `ceems_lb` config var (https://github.com/mahendrapaipuri/ansible/pull/13)'
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.5-3.4.1! (https://github.com/mahendrapaipuri/ansible/pull/12)'
+    release_date: '2024-04-04'
+  0.3.0:
+    changes:
+      minor_changes:
+        - 'enhancement: Extra configs variable from CEEMS API server (https://github.com/mahendrapaipuri/ansible/pull/11)'
+    release_date: '2024-04-04'
+  0.2.3:
+    changes:
+      bugfixes:
+        - 'bugfix: Correct ceems_api_server binary name (https://github.com/mahendrapaipuri/ansible/pull/10)'
     release_date: '2024-03-02'
   0.2.2:
     changes:
       trivial:
-      - 'patch: Add create_system_user_group variable (https://github.com/mahendrapaipuri/ansible/pull/9)'
+        - 'patch: Add create_system_user_group variable (https://github.com/mahendrapaipuri/ansible/pull/9)'
     release_date: '2024-03-02'
-  0.2.3:
+  0.2.1:
+    changes:
+      trivial:
+        - 'patch: Add ceems_lb molecule tests (https://github.com/mahendrapaipuri/ansible/pull/7)'
+    release_date: '2024-03-02'
+  0.2.0:
+    changes:
+      minor_changes:
+        - 'feat: Add litestream role (https://github.com/mahendrapaipuri/ansible/pull/6)'
+    release_date: '2024-03-02'
+  0.1.2:
+    changes:
+      trivial:
+        - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.5-3.4.0! (https://github.com/mahendrapaipuri/ansible/pull/5)'
+    release_date: '2024-02-29'
+  0.1.1:
     changes:
       bugfixes:
-      - 'bugfix: Correct ceems_api_server binary name (https://github.com/mahendrapaipuri/ansible/pull/10)'
-    release_date: '2024-03-02'
-  0.3.0:
-    changes:
-      minor_changes:
-      - 'enhancement: Extra configs variable from CEEMS API server (https://github.com/mahendrapaipuri/ansible/pull/11)'
-    release_date: '2024-04-04'
-  0.3.1:
-    changes:
-      trivial:
-      - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.5-3.4.1! (https://github.com/mahendrapaipuri/ansible/pull/12)'
-      - 'patch: Update `ceems_lb` config var (https://github.com/mahendrapaipuri/ansible/pull/13)'
-    release_date: '2024-04-04'
-  0.3.2:
-    changes:
-      trivial:
-      - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
-    release_date: '2024-06-16'
-  0.4.0:
-    changes:
-      minor_changes:
-      - 'minor: Upgrade ceems roles (https://github.com/mahendrapaipuri/ansible/pull/16)'
-      trivial:
-      - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.6-3.4.2! (https://github.com/mahendrapaipuri/ansible/pull/14)'
-    release_date: '2024-07-09'
-  0.4.1:
-    changes:
-      trivial:
-      - 'patch: Format the config files properly (https://github.com/mahendrapaipuri/ansible/pull/19)'
-    release_date: '2024-07-09'
-  0.4.2:
-    release_date: '2024-08-27'
+        - 'bugfix: Minor fixes (https://github.com/mahendrapaipuri/ansible/pull/4)'
+    release_date: '2024-02-29'
+  0.1.0:
+    release_date: '2024-02-26'
