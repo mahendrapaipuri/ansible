@@ -4,6 +4,9 @@ releases:
   0.4.2:
     changes:
       trivial:
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.0! (https://github.com/mahendrapaipuri/ansible/pull/46)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.0! (https://github.com/mahendrapaipuri/ansible/pull/45)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.0! (https://github.com/mahendrapaipuri/ansible/pull/44)'
         - 'patch: New NVIDIA/dcgm-exporter upstream release 3.3.9-3.6.1! (https://github.com/mahendrapaipuri/ansible/pull/43)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.4.1! (https://github.com/mahendrapaipuri/ansible/pull/42)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.4.1! (https://github.com/mahendrapaipuri/ansible/pull/41)'
