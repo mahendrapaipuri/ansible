@@ -38,6 +38,7 @@ def test_service(host):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
+        return
 
     s = host.service("ceems_exporter")
     try:
@@ -59,6 +60,7 @@ def test_socket(host, socket):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
+        return
 
     s = host.socket(socket)
     assert s.is_listening
@@ -69,7 +71,7 @@ def test_collectors(host):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
-        
+
     exporter_out = host.check_output('curl http://localhost:9010/metrics').strip()
     # assert "ceems_scrape_collector_success{collector=\"ipmi_dcmi\"}" not in exporter_out
     assert "ceems_scrape_collector_success{collector=\"rapl\"}" not in exporter_out

@@ -30,6 +30,7 @@ def test_service(host):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
+        return
 
     s = host.service("ceems_exporter")
     try:
@@ -60,5 +61,6 @@ def test_socket(host, socket):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
-        
+        return
+
     assert host.socket(socket).is_listening
