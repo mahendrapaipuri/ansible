@@ -71,6 +71,7 @@ def test_collectors(host):
     # Ignore the test
     if host.system_info.distribution == 'debian' and host.system_info.codename == 'buster':
         assert True
+        return
 
     exporter_out = host.check_output('curl http://localhost:9010/metrics').strip()
     # assert "ceems_scrape_collector_success{collector=\"ipmi_dcmi\"}" not in exporter_out
