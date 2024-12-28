@@ -8,12 +8,12 @@ driver:
 # from Ansible >= 2.17
 # So we are removing them from test matrix
 platforms:
-  # - name: almalinux-8
-  #   image: dokken/almalinux-8
-  #   pre_build_image: true
-  #   privileged: true
-  #   cgroup_parent: docker.slice
-  #   command: /lib/systemd/systemd
+  - name: almalinux-8
+    image: dokken/almalinux-8
+    pre_build_image: true
+    privileged: true
+    cgroup_parent: docker.slice
+    command: /lib/systemd/systemd
   - name: almalinux-9
     image: dokken/almalinux-9
     pre_build_image: true
@@ -32,12 +32,12 @@ platforms:
   #   privileged: true
   #   cgroup_parent: docker.slice
   #   command: /lib/systemd/systemd
-  - name: centos-stream-9
-    image: dokken/centos-stream-9
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /lib/systemd/systemd
+  # - name: centos-stream-9
+  #   image: dokken/centos-stream-9
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /lib/systemd/systemd
   - name: debian-10
     image: dokken/debian-10
     pre_build_image: true
@@ -88,3 +88,16 @@ verifier:
 provisioner:
   playbooks:
     converge: ${MOLECULE_PROJECT_DIRECTORY}/../../.config/molecule/converge.yml
+  inventory:
+    hosts:
+      target_hosts:
+        hosts: {}
+    host_vars:
+      almalinux-8:
+        exclude_ansible_vers:
+          - "2.17"
+      ubuntu-24.04:
+        exclude_ansible_vers:
+          - "2.9"
+          - "2.10"
+          - "2.11"
