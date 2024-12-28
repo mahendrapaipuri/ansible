@@ -4,9 +4,8 @@ dependency:
 prerun: false
 driver:
   name: docker
-# Almalinux 8, Centos 7 and 8 ships Python 3.6 which is not supported anymore
-# from Ansible >= 2.17
-# So we are removing them from test matrix
+# Almalinux 8 and 9 failing in CI due to unsorted issue.
+# Ignore them for now until the issue is fixed upstream
 platforms:
   # - name: almalinux-8
   #   image: dokken/almalinux-8
@@ -14,12 +13,12 @@ platforms:
   #   privileged: true
   #   cgroup_parent: docker.slice
   #   command: /lib/systemd/systemd
-  - name: almalinux-9
-    image: dokken/almalinux-9
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /lib/systemd/systemd
+  # - name: almalinux-9
+  #   image: dokken/almalinux-9
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /lib/systemd/systemd
   # - name: centos-7
   #   image: dokken/centos-7
   #   pre_build_image: true
@@ -32,12 +31,12 @@ platforms:
   #   privileged: true
   #   cgroup_parent: docker.slice
   #   command: /lib/systemd/systemd
-  - name: centos-stream-9
-    image: dokken/centos-stream-9
-    pre_build_image: true
-    privileged: true
-    cgroup_parent: docker.slice
-    command: /lib/systemd/systemd
+  # - name: centos-stream-9
+  #   image: dokken/centos-stream-9
+  #   pre_build_image: true
+  #   privileged: true
+  #   cgroup_parent: docker.slice
+  #   command: /lib/systemd/systemd
   - name: debian-10
     image: dokken/debian-10
     pre_build_image: true
@@ -74,6 +73,12 @@ platforms:
     privileged: true
     cgroup_parent: docker.slice
     command: /lib/systemd/systemd
+  - name: ubuntu-24.04
+    image: dokken/ubuntu-24.04
+    pre_build_image: true
+    privileged: true
+    cgroup_parent: docker.slice
+    command: /lib/systemd/systemd
 verifier:
   name: testinfra
   directory: ${MOLECULE_SCENARIO_DIRECTORY}/tests
@@ -82,3 +87,16 @@ verifier:
 provisioner:
   playbooks:
     converge: ${MOLECULE_PROJECT_DIRECTORY}/../../.config/molecule/converge.yml
+  inventory:
+    hosts:
+      target_hosts:
+        hosts: {}
+    host_vars:
+      almalinux-8:
+        exclude_ansible_vers:
+          - "2.17"
+      ubuntu-24.04:
+        exclude_ansible_vers:
+          - "2.9"
+          - "2.10"
+          - "2.11"

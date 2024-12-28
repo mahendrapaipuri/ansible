@@ -27,8 +27,8 @@ argument_specs:
         description: URL of the ceemCEEMS Load Balancer checksums file
         default: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt
       ceems_lb_web_listen_address:
-        description: Address on which CEEMS Load Balancer will listen
-        default: "0.0.0.0:9020"
+        description: Address(es) on which CEEMS Load Balancer will listen. It can accept a list of addresses too.
+        default: "0.0.0.0:9030"
       ceems_lb_config:
         description:
           - Configuration of CEEMS LB.

@@ -1,0 +1,6 @@
+---
+{{ ansible_managed | comment }}
+{% if ceems_exporter_redfish_web_config | length > 0 %}
+redfish_web_config:
+{{ ceems_exporter_redfish_web_config | to_nice_yaml | indent(2, true) }}
+{% endif %}
