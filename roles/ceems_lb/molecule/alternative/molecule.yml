@@ -3,12 +3,16 @@ provisioner:
   inventory:
     group_vars:
       all:
-        ceems_lb_web_listen_address: 127.0.0.1:8080
+        ceems_lb_web_listen_address:
+          - 127.0.0.1:8080
+          - 127.0.0.1:8090
         ceems_lb_config:
           strategy: round-robin
           backends:
             - id: default
               tsdb_urls:
+                - http://localhost:9090
+              pyroscope_urls:
                 - http://localhost:9090
         ceems_api_server_config:
           data:

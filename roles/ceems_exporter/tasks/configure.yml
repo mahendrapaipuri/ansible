@@ -25,13 +25,22 @@
     mode: "0640"
   notify: restart ceems_exporter
 
+- name: Copy the redfish web config file
+  ansible.builtin.template:
+    src: redfish-config.yaml.j2
+    dest: /etc/ceems_exporter/redfish-config.yaml
+    owner: "{{ ceems_exporter_system_user }}"
+    group: "{{ ceems_exporter_system_group }}"
+    mode: "0640"
+  notify: restart ceems_exporter
+
 - name: Allow ceems_exporter to sudo ipmi-dcmi
   community.general.sudoers:
     name: allow-ipmi-dcmi
     user: "{{ ceems_exporter_system_user }}"
     commands: /usr/sbin/ipmi-dcmi
   when:
-    - not "ipmi_dcmi" in ceems_exporter_disabled_collectors
+    - '"ipmi_dcmi" in ceems_exporter_enabled_collectors'
     - '"sudo" in ceems_exporter_ipmi_dcmi_cmd'
     - ceems_exporter_system_user != "root"
 

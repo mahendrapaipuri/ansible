@@ -9,14 +9,22 @@ Type=simple
 User={{ ceems_lb_system_user }}
 Group={{ ceems_lb_system_group }}
 ExecStart={{ ceems_lb_binary_install_dir }}/ceems_lb \
-    --config.file=/etc/ceems_lb/config.yaml \
+{% if ceems_lb_web_listen_address is iterable and
+      ceems_lb_web_listen_address is not mapping and
+      ceems_lb_web_listen_address is not string %}
+{%   for address in ceems_lb_web_listen_address %}
+    --web.listen-address={{ address }} \
+{%   endfor %}
+{% elif ceems_lb_web_listen_address is string %}
+    --web.listen-address={{ ceems_lb_web_listen_address }} \
+{% endif %}
 {% if ceems_lb_tls_server_config | length > 0 or ceems_lb_http_server_config | length > 0 or ceems_lb_basic_auth_users | length > 0 %}
     --web.config.file=/etc/ceems_lb/web-config.yaml \
 {% endif %}
 {% for cli_arg in ceems_lb_cli_args %}
     {{ cli_arg }} \
 {% endfor %}
-    --web.listen-address={{ ceems_lb_web_listen_address }}
+    --config.file=/etc/ceems_lb/config.yaml
 
 SyslogIdentifier=ceems_lb
 Restart=always

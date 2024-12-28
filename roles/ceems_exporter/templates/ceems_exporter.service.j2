@@ -15,24 +15,14 @@ ExecStart={{ ceems_exporter_binary_install_dir }}/ceems_exporter \
 {% for collector in ceems_exporter_disabled_collectors %}
     --no-collector.{{ collector }} \
 {% endfor %}
-{% if ceems_exporter_create_unique_jobids and
-      "slurm" not in ceems_exporter_disabled_collectors %}
-    --collector.slurm.create.unique.jobids \
-{% endif %}
-{% if ceems_exporter_slurm_job_props_dir and
-      "slurm" not in ceems_exporter_disabled_collectors %}
-    --collector.slurm.job.props.path={{ ceems_exporter_slurm_job_props_dir }} \
-{% endif %}
-{% if ceems_exporter_ipmi_dcmi_cmd and
-      "ipmi_dcmi" not in ceems_exporter_disabled_collectors %}
-    --collector.ipmi.dcmi.cmd="{{ ceems_exporter_ipmi_dcmi_cmd }}" \
-{% endif %}
-{% if ceems_exporter_gpu_job_map_dir %}
-    --collector.slurm.gpu.type={{ ceems_exporter_gpu_type }} \
-    --collector.slurm.gpu.job.map.path={{ ceems_exporter_gpu_job_map_dir }} \
-{% endif %}
 {% if ceems_exporter_tls_server_config | length > 0 or ceems_exporter_http_server_config | length > 0 or ceems_exporter_basic_auth_users | length > 0 %}
     --web.config.file=/etc/ceems_exporter/config.yaml \
+{% endif %}
+{% if ceems_exporter_redfish_web_config | length > 0 %}
+{% if 'redfish' not in ceems_exporter_enabled_collectors %}
+    --collector.redfish \
+{% endif %}
+    --collector.redfish.web-config=/etc/ceems_exporter/redfish-config.yaml \
 {% endif %}
 {% if ceems_exporter_web_listen_address is iterable and
       ceems_exporter_web_listen_address is not mapping and
@@ -57,31 +47,11 @@ StartLimitInterval=0
 {% endfor %}
 ProtectHome={{ ns.protect_home }}
 
-{%  if "ipmi_dcmi" not in ceems_exporter_disabled_collectors and 
-        "sudo" not in ceems_exporter_ipmi_dcmi_cmd and
-        ceems_exporter_system_user != "root" %}
-{%   set _ = ns.caps.extend(['CAP_SETUID', 'CAP_SETGID']) %}
-{% endif %}
-
-{% if "slurm" not in ceems_exporter_disabled_collectors and 
-      ceems_exporter_create_unique_jobids and
-      not ceems_exporter_slurm_job_props_dir and
-      ceems_exporter_system_user != "root" %}
-{%   set _ = ns.caps.extend(['CAP_SYS_PTRACE', 'CAP_DAC_READ_SEARCH']) %}
-{% endif %}
-
-{% if ceems_exporter_gpu_type and
-      not ceems_exporter_gpu_job_map_dir and
-      ceems_exporter_system_user != "root" %}
-{%   set _ = ns.caps.extend(['CAP_SYS_PTRACE', 'CAP_DAC_READ_SEARCH']) %}
-{% endif %}
-
-{% if ns.caps %}
-AmbientCapabilities={{ ns.caps | unique | join(' ') }}
-CapabilityBoundingSet={{ ns.caps | unique | join(' ') }}
-{% else %}
-NoNewPrivileges=yes
-{% endif %}
+# CEEMS Exporter is capability aware which means it drops all unnecessary capabilities based on
+# runtime configuration. Thus, all these capabilities will not set on actual process if
+# the collectors that do need them are not enabled.
+AmbientCapabilities=CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_DAC_OVERRIDE CAP_BPF CAP_PERFMON CAP_SYS_RESOURCE
+CapabilityBoundingSet=CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_DAC_OVERRIDE CAP_BPF CAP_PERFMON CAP_SYS_RESOURCE
 
 {% if ceems_exporter_env_vars | length > 0 %}
 {% for k, v in ceems_exporter_env_vars.items() %}

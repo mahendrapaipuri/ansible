@@ -14,10 +14,8 @@ ceems_exporter_http_server_config: {}
 ceems_exporter_basic_auth_users: {}
 ceems_exporter_enabled_collectors: []
 ceems_exporter_disabled_collectors: []
-ceems_exporter_create_unique_jobids: false
-ceems_exporter_slurm_job_props_dir: ""
-ceems_exporter_gpu_type: ""
-ceems_exporter_gpu_job_map_dir: ""
+
+ceems_exporter_redfish_web_config: {}
 
 ceems_exporter_ipmi_dcmi_cmd: sudo /usr/sbin/ipmi-dcmi --get-system-power-statistics
 
