@@ -4,6 +4,9 @@ releases:
   0.4.2:
     changes:
       trivial:
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.2! (https://github.com/mahendrapaipuri/ansible/pull/53)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.2! (https://github.com/mahendrapaipuri/ansible/pull/52)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.5.2! (https://github.com/mahendrapaipuri/ansible/pull/51)'
         - 'patch: Update ceems exporter and LB roles (https://github.com/mahendrapaipuri/ansible/pull/47)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.5.0! (https://github.com/mahendrapaipuri/ansible/pull/46)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.5.0! (https://github.com/mahendrapaipuri/ansible/pull/45)'
