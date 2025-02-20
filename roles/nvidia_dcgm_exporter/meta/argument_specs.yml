@@ -10,7 +10,7 @@ argument_specs:
     options:
       nvidia_dcgm_exporter_version:
         description: nVIDIA DCGM exporter package version. Also accepts latest as parameter.
-        default: 3.3.9-3.6.1
+        default: 4.1.1-4.0.3
       nvidia_dcgm_exporter_skip_install:
         description: DCGM exporter installation tasks gets skipped when set to true.
         type: bool
