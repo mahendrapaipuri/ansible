@@ -1,5 +1,5 @@
 ---
-ceems_lb_version: 0.7.1
+ceems_lb_version: 0.7.2
 ceems_lb_binary_local_dir: ""
 ceems_lb_binary_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/ceems-{{ ceems_lb_version }}.linux-{{ go_arch }}.tar.gz
 ceems_lb_checksums_url: https://github.com/{{ _ceems_lb_repo }}/releases/download/v{{ ceems_lb_version }}/sha256sums.txt
