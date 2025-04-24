@@ -12,5 +12,5 @@ clusters:
 
 {% if ceems_api_server_updaters_config | length > 0 %}
 updaters:
-{{ ceems_api_server_updaters_config | to_nice_yaml(sort_keys=False,default_style='|')  | indent(2, true) }}
+{{ ceems_api_server_updaters_config | to_nice_yaml(sort_keys=False)  | indent(2, true) }}
 {% endif %}
