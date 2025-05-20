@@ -1,5 +1,5 @@
 ---
-ceems_exporter_version: 0.7.2
+ceems_exporter_version: 0.8.0
 ceems_exporter_binary_local_dir: ""
 ceems_exporter_binary_url: "https://github.com/{{ _ceems_exporter_repo }}/releases/download/v{{ ceems_exporter_version }}/\
                             ceems-{{ ceems_exporter_version }}.linux-{{ go_arch }}.tar.gz"
