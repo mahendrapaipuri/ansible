@@ -4,6 +4,9 @@ releases:
   0.4.3:
     changes:
       trivial:
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.9.1! (https://github.com/mahendrapaipuri/ansible/pull/82)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.9.1! (https://github.com/mahendrapaipuri/ansible/pull/81)'
+        - 'patch: New mahendrapaipuri/ceems upstream release 0.9.1! (https://github.com/mahendrapaipuri/ansible/pull/80)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.9.0! (https://github.com/mahendrapaipuri/ansible/pull/79)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.9.0! (https://github.com/mahendrapaipuri/ansible/pull/78)'
         - 'patch: New mahendrapaipuri/ceems upstream release 0.9.0! (https://github.com/mahendrapaipuri/ansible/pull/77)'
