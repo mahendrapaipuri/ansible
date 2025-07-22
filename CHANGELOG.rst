@@ -4,6 +4,14 @@ ceems.Ansible Release Notes
 
 .. contents:: Topics
 
+v1.0.0
+======
+
+Major Changes
+-------------
+
+- major: Bump version to next sem ver (https://github.com/ceems-dev/ansible/pull/89)
+
 v0.4.3
 ======
 
