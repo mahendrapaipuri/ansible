@@ -5,4 +5,4 @@
   tasks:
     - name: Run role
       ansible.builtin.include_role:
-        name: mahendrapaipuri.ansible.{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}
+        name: ceems.ansible.{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}

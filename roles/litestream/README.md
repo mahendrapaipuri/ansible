@@ -13,26 +13,28 @@ Deploy [Litestream](https://github.com/benbjohnson/litestream) using ansible.
 ## Role Variables
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in [meta/argument_specs.yml](meta/argument_specs.yml).
-Please refer to the [collection docs](https://mahendrapaipuri.github.io/ansible/branch/main/litestream_role.html) for description and default values of the variables.
+Please refer to the [collection docs](https://ceems-dev.github.io/ansible/branch/main/litestream_role.html) for description and default values of the variables.
 
 ## Example
 
 ### Playbook
 
 Use it in a playbook as follows:
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.litestream
+    - ceems.ansible.litestream
 ```
 
 ### TLS config
 
 Before running litestream role, the user needs to provision their own certificate and key.
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.litestream
+    - ceems.ansible.litestream
   vars:
     litestream_config:
       dbs:
@@ -40,7 +42,6 @@ Before running litestream role, the user needs to provision their own certificat
         replicas:
           - url: s3://mybkt.litestream.io/db1
 ```
-
 
 ## Local Testing
 

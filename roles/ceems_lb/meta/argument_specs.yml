@@ -4,7 +4,7 @@ argument_specs:
   main:
     short_description: CEEMS Load Balancer
     description:
-      - Deploy L(CEEMS Load Balancer,https://github.com/mahendrapaipuri/ceems) using ansible
+      - Deploy L(CEEMS Load Balancer,https://github.com/ceems-dev/ceems) using ansible
     author:
       - Mahendra Paipuri
     options:
@@ -32,18 +32,18 @@ argument_specs:
       ceems_lb_config:
         description:
           - Configuration of CEEMS LB.
-          - Configuration under key `ceems_lb` in L(ceems_lb docs,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb).
+          - Configuration under key `ceems_lb` in L(ceems_lb docs,https://ceems-dev.github.io/ceems/docs/configuration/ceems-lb).
         type: dict
         required: true
       ceems_api_server_config:
         description:
           - Client configuration of CEEMS API server.
-          - Configuration under key `ceems_api_server` in L(ceems_lb docs,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb).
+          - Configuration under key `ceems_api_server` in L(ceems_lb docs,https://ceems-dev.github.io/ceems/docs/configuration/ceems-lb).
         type: dict
       ceems_api_server_clusters_config:
         description:
           - Configuration of CEEMS API server clusters. This is optional
-          - Keys and values are the same as in L(clusters docs,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#cluster_config).
+          - Keys and values are the same as in L(clusters docs,https://ceems-dev.github.io/ceems/docs/configuration/ceems-api-server#cluster_config).
         type: list
         elements: dict
       ceems_lb_tls_server_config:

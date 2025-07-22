@@ -2,7 +2,7 @@
 
 ## Description
 
-Deploy [ceems load balancer](https://github.com/mahendrapaipuri/ceems) using ansible.
+Deploy [ceems load balancer](https://github.com/ceems-dev/ceems) using ansible.
 
 ## Requirements
 
@@ -13,22 +13,24 @@ Deploy [ceems load balancer](https://github.com/mahendrapaipuri/ceems) using ans
 ## Role Variables
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in [meta/argument_specs.yml](meta/argument_specs.yml).
-Please refer to the [collection docs](https://mahendrapaipuri.github.io/ansible/branch/main/ceems_lb_role.html) for description and default values of the variables.
+Please refer to the [collection docs](https://ceems-dev.github.io/ansible/branch/main/ceems_lb_role.html) for description and default values of the variables.
 
 ## Example
 
 ### Playbook
 
 Use it in a playbook as follows:
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.ceems_lb
+    - ceems.ansible.ceems_lb
 ```
 
 ### TLS config
 
 Before running ceems_lb role, the user needs to provision their own certificate and key.
+
 ```yaml
 - hosts: all
   pre_tasks:
@@ -46,7 +48,7 @@ Before running ceems_lb role, the user needs to provision their own certificate 
         privatekey_path: /etc/ceems_lb/tls.key
         provider: selfsigned
   roles:
-    - mahendrapaipuri.ansible.ceems_lb
+    - ceems.ansible.ceems_lb
   vars:
     ceems_lb_tls_server_config:
       cert_file: /etc/ceems_lb/tls.cert
@@ -54,7 +56,6 @@ Before running ceems_lb role, the user needs to provision their own certificate 
     ceems_lb_basic_auth_users:
       randomuser: examplepassword
 ```
-
 
 ## Local Testing
 
