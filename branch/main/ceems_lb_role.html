@@ -7,7 +7,7 @@
 <meta content="2.19.1" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer &mdash; mahendrapaipuri.Ansible Collection  documentation</title>
+  <title>ceems.ansible.ceems_lb role – CEEMS Load Balancer &mdash; Ceems.Ansible Collection  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
       <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
       <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
@@ -22,8 +22,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="mahendrapaipuri.ansible.litestream role – Litestream replicator" href="litestream_role.html" />
-    <link rel="prev" title="mahendrapaipuri.ansible.ceems_exporter role – CEEMS Exporter" href="ceems_exporter_role.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+    <link rel="next" title="ceems.ansible.litestream role – Litestream replicator" href="litestream_role.html" />
+    <link rel="prev" title="ceems.ansible.ceems_exporter role – CEEMS Exporter" href="ceems_exporter_role.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
 
 
 
@@ -40,12 +40,12 @@
   </ul>
 </div>
 
-<a class="DocSite-nav" href="https://mahendrapaipuri.github.io/ansible/branch/main/" style="padding-bottom: 30px;">
+<a class="DocSite-nav" href="https://ceems-dev.github.io/ansible/tag/0.4.2" style="padding-bottom: 30px;">
 
   <img class="DocSiteNav-logo"
     src="_static/images/Ansible-Mark-RGB_White.png"
     alt="Ansible Logo">
-  <div class="DocSiteNav-title">mahendrapaipuri.Ansible Collection Docs</div>
+  <div class="DocSiteNav-title">Ceems.Ansible Collection Docs</div>
 </a>
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -55,7 +55,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            mahendrapaipuri.Ansible Collection
+            Ceems.Ansible Collection
           </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
 
 <div class="version">
@@ -74,9 +74,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
   
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ceems_api_server_role.html">mahendrapaipuri.ansible.ceems_api_server role – CEEMS API Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ceems_exporter_role.html">mahendrapaipuri.ansible.ceems_exporter role – CEEMS Exporter</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="ceems_api_server_role.html">ceems.ansible.ceems_api_server role – CEEMS API Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ceems_exporter_role.html">ceems.ansible.ceems_exporter role – CEEMS Exporter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ceems.ansible.ceems_lb role – CEEMS Load Balancer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#entry-point-main-ceems-load-balancer">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – CEEMS Load Balancer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
@@ -88,8 +88,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="litestream_role.html">mahendrapaipuri.ansible.litestream role – Litestream replicator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_dcgm_exporter_role.html">mahendrapaipuri.ansible.nvidia_dcgm_exporter role – nVIDIA DCGM Exporter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="litestream_role.html">ceems.ansible.litestream role – Litestream replicator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_dcgm_exporter_role.html">ceems.ansible.nvidia_dcgm_exporter role – nVIDIA DCGM Exporter</a></li>
 </ul>
 <!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
 
@@ -99,7 +99,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">mahendrapaipuri.Ansible Collection</a>
+          <a href="index.html">Ceems.Ansible Collection</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -107,7 +107,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer</li>
+      <li class="breadcrumb-item active">ceems.ansible.ceems_lb role – CEEMS Load Balancer</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -118,15 +118,15 @@
   
            <div itemprop="articleBody">
              
-  <span class="target" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role"></span><section id="mahendrapaipuri-ansible-ceems-lb-role-ceems-load-balancer">
-<h1>mahendrapaipuri.ansible.ceems_lb role – CEEMS Load Balancer<a class="headerlink" href="#mahendrapaipuri-ansible-ceems-lb-role-ceems-load-balancer" title="Link to this heading"></a></h1>
+  <span class="target" id="ansible-collections-ceems-ansible-ceems-lb-role"></span><section id="ceems-ansible-ceems-lb-role-ceems-load-balancer">
+<h1>ceems.ansible.ceems_lb role – CEEMS Load Balancer<a class="headerlink" href="#ceems-ansible-ceems-lb-role-ceems-load-balancer" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/mahendrapaipuri/ansible/">mahendrapaipuri.ansible collection</a> (version 0.4.3).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/ceems/ansible/">ceems.ansible collection</a> (version 0.4.3).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
-<p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">mahendrapaipuri.ansible</span></code>.</p>
-<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">mahendrapaipuri.ansible.ceems_lb</span></code>.</p>
+<p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">ceems.ansible</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">ceems.ansible.ceems_lb</span></code>.</p>
 </div>
 <nav class="contents local" id="contents">
 <ul class="simple">
@@ -139,12 +139,12 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </li>
 </ul>
 </nav>
-<span class="target" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-entrypoint-main"></span><section id="entry-point-main-ceems-load-balancer">
+<span class="target" id="ansible-collections-ceems-ansible-ceems-lb-role-entrypoint-main"></span><section id="entry-point-main-ceems-load-balancer">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – CEEMS Load Balancer</a><a class="headerlink" href="#entry-point-main-ceems-load-balancer" title="Link to this heading"></a></h2>
 <section id="synopsis">
 <h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Deploy <a class="reference external" href="https://github.com/mahendrapaipuri/ceems">CEEMS Load Balancer</a> using ansible</p></li>
+<li><p>Deploy <a class="reference external" href="https://github.com/ceems-dev/ceems">CEEMS Load Balancer</a> using ansible</p></li>
 </ul>
 </section>
 <section id="parameters">
@@ -157,30 +157,30 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </thead>
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_clusters_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-api-server-clusters-config"><strong>ceems_api_server_clusters_config</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_clusters_config"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-api-server-clusters-config"><strong>ceems_api_server_clusters_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_clusters_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration of CEEMS API server clusters. This is optional</p>
-<p>Keys and values are the same as in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#cluster_config">clusters docs</a>.</p>
+<p>Keys and values are the same as in <a class="reference external" href="https://ceems-dev.github.io/ceems/docs/configuration/ceems-api-server#cluster_config">clusters docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-api-server-config"><strong>ceems_api_server_config</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_api_server_config"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-api-server-config"><strong>ceems_api_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_api_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Client configuration of CEEMS API server.</p>
-<p>Configuration under key `ceems_api_server` in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
+<p>Configuration under key `ceems_api_server` in <a class="reference external" href="https://ceems-dev.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-basic-auth-users"><strong>ceems_lb_basic_auth_users</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_basic_auth_users"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-basic-auth-users"><strong>ceems_lb_basic_auth_users</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_basic_auth_users" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Dictionary of users and password for basic authentication. Passwords are automatically hashed with bcrypt.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_install_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-install-dir"><strong>ceems_lb_binary_install_dir</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_install_dir"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-install-dir"><strong>ceems_lb_binary_install_dir</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_install_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -189,7 +189,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_local_dir"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-local-dir"><strong>ceems_lb_binary_local_dir</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_local_dir"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-local-dir"><strong>ceems_lb_binary_local_dir</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_local_dir" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Enables the use of local packages instead of those distributed on github.</p>
@@ -198,7 +198,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-url"><strong>ceems_lb_binary_url</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_binary_url"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-binary-url"><strong>ceems_lb_binary_url</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_binary_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>URL of the CEEMS Load Balancer binaries .tar.gz file</p>
@@ -206,7 +206,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_checksums_url"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-checksums-url"><strong>ceems_lb_checksums_url</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_checksums_url"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-checksums-url"><strong>ceems_lb_checksums_url</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_checksums_url" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>URL of the ceemCEEMS Load Balancer checksums file</p>
@@ -214,7 +214,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_cli_args"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-cli-args"><strong>ceems_lb_cli_args</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_cli_args"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-cli-args"><strong>ceems_lb_cli_args</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_cli_args" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -222,15 +222,15 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-config"><strong>ceems_lb_config</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_config"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-config"><strong>ceems_lb_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration of CEEMS LB.</p>
-<p>Configuration under key `ceems_lb` in <a class="reference external" href="https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
+<p>Configuration under key `ceems_lb` in <a class="reference external" href="https://ceems-dev.github.io/ceems/docs/configuration/ceems-lb">ceems_lb docs</a>.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_create_system_user_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-create-system-user-group"><strong>ceems_lb_create_system_user_group</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_create_system_user_group"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-create-system-user-group"><strong>ceems_lb_create_system_user_group</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_create_system_user_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -239,7 +239,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_env_vars"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-env-vars"><strong>ceems_lb_env_vars</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_env_vars"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-env-vars"><strong>ceems_lb_env_vars</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_env_vars" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -247,7 +247,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-http-server-config"><strong>ceems_lb_http_server_config</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_http_server_config"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-http-server-config"><strong>ceems_lb_http_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_http_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Config for HTTP/2 support.</p>
@@ -255,7 +255,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_skip_install"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-skip-install"><strong>ceems_lb_skip_install</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_skip_install"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-skip-install"><strong>ceems_lb_skip_install</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_skip_install" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>CEEMS Load Balancer installation tasks gets skipped when set to true.</p>
@@ -267,7 +267,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_system_group"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-system-group"><strong>ceems_lb_system_group</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_system_group"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-system-group"><strong>ceems_lb_system_group</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_system_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -276,7 +276,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_system_user"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-system-user"><strong>ceems_lb_system_user</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_system_user"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-system-user"><strong>ceems_lb_system_user</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_system_user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p><em>Advanced</em></p>
@@ -285,7 +285,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_tls_server_config"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-tls-server-config"><strong>ceems_lb_tls_server_config</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_tls_server_config"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-tls-server-config"><strong>ceems_lb_tls_server_config</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_tls_server_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Configuration for TLS authentication.</p>
@@ -293,7 +293,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_version"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-version"><strong>ceems_lb_version</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_version"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-version"><strong>ceems_lb_version</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>CEEMS Load Balancer package version. Also accepts latest as parameter.</p>
@@ -301,7 +301,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_web_listen_address"></div><p class="ansible-option-title" id="ansible-collections-mahendrapaipuri-ansible-ceems-lb-role-parameter-main-ceems-lb-web-listen-address"><strong>ceems_lb_web_listen_address</strong></p>
+<div class="ansibleOptionAnchor" id="parameter-main--ceems_lb_web_listen_address"></div><p class="ansible-option-title" id="ansible-collections-ceems-ansible-ceems-lb-role-parameter-main-ceems-lb-web-listen-address"><strong>ceems_lb_web_listen_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--ceems_lb_web_listen_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Address(es) on which CEEMS Load Balancer will listen. It can accept a list of addresses too.</p>
@@ -319,8 +319,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <section id="collection-links">
 <h4>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h4>
 <ul class="ansible-links">
-<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/mahendrapaipuri/ansible/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
-<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/mahendrapaipuri/ansible" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ceems-dev/ansible/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ceems-dev/ansible" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
 </ul>
 </section>
 </section>
@@ -333,14 +333,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
           
 
 <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ceems_exporter_role.html" class="btn btn-neutral float-left" title="mahendrapaipuri.ansible.ceems_exporter role – CEEMS Exporter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="litestream_role.html" class="btn btn-neutral float-right" title="mahendrapaipuri.ansible.litestream role – Litestream replicator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ceems_exporter_role.html" class="btn btn-neutral float-left" title="ceems.ansible.ceems_exporter role – CEEMS Exporter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="litestream_role.html" class="btn btn-neutral float-right" title="ceems.ansible.litestream role – Litestream replicator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright mahendrapaipuri.Ansible Contributors.</p>
+    <p>&#169; Copyright Ceems.Ansible Contributors.</p>
   </div>
 
   
