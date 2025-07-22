@@ -13,22 +13,24 @@ Deploy prometheus [nvidia dcgm exporter](https://github.com/NVIDIA/dcgm-exporter
 ## Role Variables
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in [meta/argument_specs.yml](meta/argument_specs.yml).
-Please refer to the [collection docs](https://mahendrapaipuri.github.io/ansible/branch/main/dcgm_exporter_role.html) for description and default values of the variables.
+Please refer to the [collection docs](https://ceems-dev.github.io/ansible/branch/main/dcgm_exporter_role.html) for description and default values of the variables.
 
 ## Example
 
 ### Playbook
 
 Use it in a playbook as follows:
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.nvidia_dcgm_exporter
+    - ceems.ansible.nvidia_dcgm_exporter
 ```
 
 ### TLS config
 
 Before running dcgm_exporter role, the user needs to provision their own certificate and key.
+
 ```yaml
 - hosts: all
   pre_tasks:
@@ -46,7 +48,7 @@ Before running dcgm_exporter role, the user needs to provision their own certifi
         privatekey_path: /etc/dcgm_exporter/tls.key
         provider: selfsigned
   roles:
-    - mahendrapaipuri.ansible.nvidia_dcgm_exporter
+    - ceems.ansible.nvidia_dcgm_exporter
   vars:
     dcgm_exporter_tls_server_config:
       cert_file: /etc/dcgm_exporter/tls.cert

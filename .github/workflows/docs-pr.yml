@@ -20,21 +20,21 @@ jobs:
     name: Build Ansible Docs
     uses: ansible-community/github-docs-build/.github/workflows/_shared-docs-build-pr.yml@main
     with:
-      collection-name: mahendrapaipuri.ansible
+      collection-name: ceems-dev.ansible
       init-lenient: false
       init-fail-on-error: true
       squash-hierarchy: true
-      init-project: mahendrapaipuri.Ansible Collection
-      init-copyright: mahendrapaipuri.Ansible Contributors
-      init-title: mahendrapaipuri.Ansible Collection Documentation
-      init-html-short-title: mahendrapaipuri.Ansible Collection Docs
+      init-project: ceems-dev.Ansible Collection
+      init-copyright: ceems-dev.Ansible Contributors
+      init-title: ceems-dev.Ansible Collection Documentation
+      init-html-short-title: ceems-dev.Ansible Collection Docs
       init-extra-html-theme-options: |
         documentation_home_url=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/branch/main/
       render-file-line: "> * `$<status>` [$<path_tail>](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr/${{ github.event.number }}/$<path_tail>)"
 
   publish-docs-gh-pages:
     # for now we won't run this on forks
-    if: github.repository == 'mahendrapaipuri/ansible'
+    if: github.repository == 'ceems-dev/ansible'
     permissions:
       contents: write
       pages: write

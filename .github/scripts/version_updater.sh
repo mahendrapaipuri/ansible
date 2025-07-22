@@ -4,7 +4,7 @@ set -uo pipefail
 
 GIT_MAIL="gitbot@github.com"
 GIT_USER="gitbot"
-GIT_REPO="mahendrapaipuri/ansible"
+GIT_REPO="ceems-dev/ansible"
 
 if [[ $# -ne 2 ]]; then
   echo "usage: $(basename "$0") <source repo> <role>"

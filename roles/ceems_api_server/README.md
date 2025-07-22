@@ -2,7 +2,7 @@
 
 ## Description
 
-Deploy [ceems api server](https://github.com/mahendrapaipuri/ceems) using ansible.
+Deploy [ceems api server](https://github.com/ceems-dev/ceems) using ansible.
 
 ## Requirements
 
@@ -13,22 +13,24 @@ Deploy [ceems api server](https://github.com/mahendrapaipuri/ceems) using ansibl
 ## Role Variables
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in [meta/argument_specs.yml](meta/argument_specs.yml).
-Please refer to the [collection docs](https://mahendrapaipuri.github.io/ansible/branch/main/ceems_api_server_role.html) for description and default values of the variables.
+Please refer to the [collection docs](https://ceems-dev.github.io/ansible/branch/main/ceems_api_server_role.html) for description and default values of the variables.
 
 ## Example
 
 ### Playbook
 
 Use it in a playbook as follows:
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.ceems_api_server
+    - ceems.ansible.ceems_api_server
 ```
 
 ### TLS config
 
 Before running ceems_api_server role, the user needs to provision their own certificate and key.
+
 ```yaml
 - hosts: all
   pre_tasks:
@@ -46,7 +48,7 @@ Before running ceems_api_server role, the user needs to provision their own cert
         privatekey_path: /etc/ceems_api_server/tls.key
         provider: selfsigned
   roles:
-    - mahendrapaipuri.ansible.ceems_api_server
+    - ceems.ansible.ceems_api_server
   vars:
     ceems_api_server_tls_server_config:
       cert_file: /etc/ceems_api_server/tls.cert
@@ -54,7 +56,6 @@ Before running ceems_api_server role, the user needs to provision their own cert
     ceems_api_server_basic_auth_users:
       randomuser: examplepassword
 ```
-
 
 ## Local Testing
 

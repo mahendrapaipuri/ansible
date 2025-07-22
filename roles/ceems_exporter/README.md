@@ -2,7 +2,7 @@
 
 ## Description
 
-Deploy prometheus [ceems exporter](https://github.com/mahendrapaipuri/ceems) using ansible.
+Deploy prometheus [ceems exporter](https://github.com/ceems-dev/ceems) using ansible.
 
 ## Requirements
 
@@ -13,22 +13,24 @@ Deploy prometheus [ceems exporter](https://github.com/mahendrapaipuri/ceems) usi
 ## Role Variables
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in [meta/argument_specs.yml](meta/argument_specs.yml).
-Please refer to the [collection docs](https://mahendrapaipuri.github.io/ansible/branch/main/ceems_exporter_role.html) for description and default values of the variables.
+Please refer to the [collection docs](https://ceems-dev.github.io/ansible/branch/main/ceems_exporter_role.html) for description and default values of the variables.
 
 ## Example
 
 ### Playbook
 
 Use it in a playbook as follows:
+
 ```yaml
 - hosts: all
   roles:
-    - mahendrapaipuri.ansible.ceems_exporter
+    - ceems.ansible.ceems_exporter
 ```
 
 ### TLS config
 
 Before running ceems_exporter role, the user needs to provision their own certificate and key.
+
 ```yaml
 - hosts: all
   pre_tasks:
@@ -46,7 +48,7 @@ Before running ceems_exporter role, the user needs to provision their own certif
         privatekey_path: /etc/ceems_exporter/tls.key
         provider: selfsigned
   roles:
-    - mahendrapaipuri.ansible.ceems_exporter
+    - ceems.ansible.ceems_exporter
   vars:
     ceems_exporter_tls_server_config:
       cert_file: /etc/ceems_exporter/tls.cert

@@ -4,7 +4,7 @@ argument_specs:
   main:
     short_description: CEEMS API Server
     description:
-      - Deploy L(CEEMS API server,https://github.com/mahendrapaipuri/ceems_api_server) using ansible
+      - Deploy L(CEEMS API server,https://github.com/ceems-dev/ceems_api_server) using ansible
     author:
       - Mahendra Paipuri
     options:
@@ -31,20 +31,20 @@ argument_specs:
         default: "0.0.0.0:9020"
       ceems_api_server_config:
         description:
-          - CEEMS API server config. Configuration under key L(`ceems_api_server` docs,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server)
+          - CEEMS API server config. Configuration under key L(`ceems_api_server` docs,https://ceems-dev.github.io/ceems/docs/configuration/ceems-api-server)
           - These files include the SQLite database.
         type: dict
         required: true
       ceems_api_server_clusters_config:
         description:
           - List of clusters that are monitored by CEEMS.
-          - Each element in list be of L(`cluster_config`,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#cluster_config)
+          - Each element in list be of L(`cluster_config`,https://ceems-dev.github.io/ceems/docs/configuration/ceems-api-server#cluster_config)
         type: list
         elements: dict
       ceems_api_server_updaters_config:
         description:
           - List of updaters used by CEEMS.
-          - Each element in list be of L(`updater_config`,https://mahendrapaipuri.github.io/ceems/docs/configuration/ceems-api-server#updater_config)
+          - Each element in list be of L(`updater_config`,https://ceems-dev.github.io/ceems/docs/configuration/ceems-api-server#updater_config)
         type: list
         elements: dict
       ceems_api_server_tls_server_config:

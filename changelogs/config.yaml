@@ -28,6 +28,6 @@ sections:
     - Bugfixes
   - - known_issues
     - Known Issues
-title: mahendrapaipuri.Ansible
+title: ceems.Ansible
 trivial_section_name: trivial
 use_fqcn: true
