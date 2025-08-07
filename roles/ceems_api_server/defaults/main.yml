@@ -1,5 +1,5 @@
 ---
-ceems_api_server_version: 0.9.1
+ceems_api_server_version: 0.10.2
 ceems_api_server_binary_local_dir: ""
 ceems_api_server_binary_url: "https://github.com/{{ _ceems_api_server_repo }}/releases/download/\
                               v{{ ceems_api_server_version }}/ceems-{{ ceems_api_server_version }}.linux-{{ go_arch }}.tar.gz"
